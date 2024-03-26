@@ -1,0 +1,9 @@
+
+public class Quiz_03 {
+	public static void main(String[] args) {
+//		3-1
+		short a = 1325;
+		short b = 9327;
+		System.out.println(a + b);
+	}
+}

@@ -1,0 +1,16 @@
+
+public class Quiz_03 {
+	public static void main(String[] args) {
+		//	3-1
+		short a = 1325;
+		short b = 9327;
+		System.out.println(a + b);
+		//	3-2
+		long l = 10000000000L + 5000;
+		System.out.println(l);
+		//	3-3
+		char ca = 'A';
+		char cb = 'B';
+		System.out.println("" + ca + cb);
+	}
+}
