@@ -11,8 +11,6 @@ public class Quiz_03 {
 		//	3-3 : 'A'와 'B'를 메모리에 저장하고 화면에 출력하세요.
 		char ch1 = 'A';
 		char ch2 = 'B';
-		System.out.println("" + ch1 + ch2);
-		//	System.out.print(ch1);
-		//	System.out.print(ch2);
+		System.out.println("" + ca + cb);
 	}
 }
