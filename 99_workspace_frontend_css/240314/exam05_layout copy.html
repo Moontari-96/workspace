@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./js/app.js" defer></script>
+  <style>
+    span {
+      border: 1px solid black;
+      width: 500px;
+      height: 500px;
+    }
+
+    div {
+      border: 1px solid black;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HTML Layout 의 역사
+  1. 테이블 ( Table ) 태그로 구성
+  2. positioning
+  3. div + float / span + inline block
+  4. flex
+  5. grid -->
+
+  <span>SPAN1</span>
+  <span>SPAN2</span>
+  <!-- span태그는 대표적인 display:inline 속성이다.
+  inline 속성의 태그는 태그가 가지고 있는 내용만큼의 넓이 높이를 가진다.
+  inline 속성의 태그는 넓의와 높이값이 인위적으로 조정되지 않는다. -->
+
+  <hr>
+
+  <div>DIV1</div>
+  <div>DIV2</div>
+  <!-- Div태그는 대표적인 display:block 속성이다.
+  block 속성의 태그는 태그의 내용과 상관없이 태그 하나가 한 라인을 독점하는 특징을 가진다.
+  block 속성의 태그는 넓이와 높이의 조정은 가능하나 라인 독점의 특징이 사라지진 않는다. -->
+</body>
+
+</html>

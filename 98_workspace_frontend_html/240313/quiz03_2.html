@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>table</title>
+</head>
+
+<body>
+  <table border="1" width="800" align="center">
+    <colgroup>
+      <col width="50">
+      <col width="750">
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2">자유게시판 글 작성하기</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center">
+          <select>
+            <option>정보</option>
+            <option>정보</option>
+            <option>정보</option>
+          </select>
+        </td>
+        <td>
+          <input size="100" type="text" placeholder="글제목을 입력하세요.">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" height="400">
+          <textarea placeholder="글 내용을 입력하세요." cols="120" rows="30" style="resize: none;"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="right">
+          <input type="button" value="목록으로">
+          <input type="button" value="작성완료">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

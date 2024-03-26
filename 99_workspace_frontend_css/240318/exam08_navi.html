@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    ul {
+      border: 1px solid black;
+      overflow: hidden;
+      padding: 0;
+      background-color: black;
+    }
+
+    li {
+      list-style: none;
+      border: 1px solid black;
+      float: left;
+      width: 25%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      color: white;
+      transition-duration: .3s;
+    }
+
+    li:hover {
+      cursor: pointer;
+      background-color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- * margin : 여백 ( Child 기준으로 Parent와의 여백 )
+  * padding : 채우다 ( Parent 기준으로 Child와의 여백 ) -->
+
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Portfolio</li>
+    <li>Contact</li>
+  </ul>
+</body>
+
+</html>

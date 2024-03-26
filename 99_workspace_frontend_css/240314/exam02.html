@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none
+    }
+
+    div {
+      border: blue dashed 1px;
+      border-radius: 5px;
+    }
+
+    #div2 {
+      border: 1px solid #8321e2;
+    }
+  </style>
+  <link rel="stylesheet" href="./css/style.css">
+  <script defer src="./js/app.js"></script>
+</head>
+
+<body>
+  css 기본 - 선택자(Selector)<br>
+  > 문서를 구성하는 수많은 요소( 태그 ) 중 스타일을 적용할 대상을 지정하는 문법<br>
+  * 선택자 사이에서 우선순위는 적용 범위가 좁은 선택자 일수록 우선순위가 높음<br>
+
+  1. 태그 선택자 : 태그의 이름으로 대상을 선택하는 방법<br>
+
+  2. ID 선택자 : 태그가 가진 id 속성으로 대상을 선택하는 방법 ( #으로 표기 )<br>
+  *중요 : ID는 중복되어선 안 된다!<br>
+
+  3. Class 선택자 : 태그가 가진 class 속성으로 대상을 선택하는 방법 ( .으로 표기 )<br>
+  class는 중복되어도 상관 없음!<br>
+
+  선택자 우선순위 : inline style sheet > ID 선택자 > Class 선택자 > 태그 선택자 > 전체 선택자
+  <div>내용1</div>
+  <div id="div2">내용2</div>
+</body>
+
+</html>

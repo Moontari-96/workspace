@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    div {
+      border: 1px solid;
+      width: 100%;
+      height: 100%;
+    }
+
+    .col {
+      float: left;
+    }
+
+    .wrap {
+      width: 800px;
+      height: 600px;
+      margin: auto;
+    }
+
+    .header {
+      height: 30%;
+    }
+
+    .header_cont {
+      height: 70%;
+    }
+
+    .logo {
+      width: 25%;
+    }
+
+    .tit {
+      width: 55%;
+    }
+
+    .res {
+      width: 20%;
+    }
+
+    .nav {
+      height: 30%;
+
+    }
+
+    .nav ul {
+      padding: 0;
+      overflow: hidden;
+      margin: 0;
+      height: 100%;
+    }
+
+    .nav li {
+      float: left;
+      width: 25%;
+      text-align: center;
+      color: black;
+      height: 100%;
+      line-height: 50px;
+      transition-duration: .5s;
+    }
+
+    li:hover {
+      cursor: pointer;
+      background-color: tomato;
+      color: white;
+    }
+
+    .main {
+      height: 50%;
+    }
+
+    .cont {
+      width: 85%;
+    }
+
+    .side {
+      width: 15%;
+    }
+
+    .footer {
+      height: 20%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="header_cont">
+        <div class="logo col">LOGO</div>
+        <div class="tit col">TITLE</div>
+        <div class="res col">RESERVED</div>
+      </div>
+      <div class="nav">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Portfolio</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+    </div>
+    <div class="main">
+      <div class="cont col">Contents</div>
+      <div class="side col">Side</div>
+    </div>
+    <div class="footer">FOOTER</div>
+  </div>
+</body>
+
+</html>

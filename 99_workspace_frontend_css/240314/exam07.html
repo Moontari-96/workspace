@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./js/app.js" defer></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      border: 1px solid black;
+    }
+
+    .container {
+      width: 800px;
+      height: 100px;
+    }
+
+    .box {
+      float: left;
+      height: 100%;
+    }
+
+    #box1 {
+      width: 15%;
+    }
+
+    #box2 {
+      width: 75%;
+    }
+
+    #box3 {
+      width: 10%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 가로 상단 구조 -->
+  <!-- hacky code -> 고인물 문법 -->
+  <!-- floating layer ( float ) 비공식적 명칭 -->
+  <!-- normal flow layor 공식적 명칭 -->
+  <div class="container">
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+  </div>
+</body>
+
+</html>

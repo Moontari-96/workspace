@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./js/app.js" defer></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    div {
+      border: 1px solid black;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      width: 450px;
+      height: 400px;
+      margin: 0 auto;
+    }
+
+    .col {
+      float: left;
+      width: 50%;
+      height: 100%;
+    }
+
+    .row {
+      height: 40%;
+
+    }
+
+    .rowhigh {
+      height: 60%;
+    }
+
+    .bgiv {
+      background-color: ivory;
+    }
+
+    .bgrd {
+      background-color: rgb(210, 56, 56);
+    }
+
+    .bgbl {
+      background-color: dodgerblue;
+    }
+
+    .bgpk {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col">
+      <div class="row">
+        <div class="bgiv"></div>
+      </div>
+      <div class="rowhigh">
+        <div class="bgrd"></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="rowhigh">
+        <div class="bgbl"></div>
+      </div>
+      <div class="row">
+        <div class="bgpk"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

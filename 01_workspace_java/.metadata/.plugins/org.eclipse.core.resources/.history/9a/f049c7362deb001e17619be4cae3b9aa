@@ -1,0 +1,16 @@
+
+public class Exam_02 {
+	public static void main(String[] args) {
+		// byte 범위 -128 ~ 127
+		byte a = 127;
+		// short 범위 -32768 ~ 32767 
+		short b = 32767;
+		//
+		char c = 'a';
+		// 정수형 대표 변수
+		int d = 2100000000;
+		// long complier 인식 오류로 인해 숫자 뒤 L( l로 표시 가능하나 1과 혼돈 야기 L대문자로 표기 관습 )로 명시
+		long e = 1000000000000000000L;
+		System.out.println(c);
+	}
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        div {
+            border: 1px solid black;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 600px;
+            height: 400px;
+        }
+
+        .col {
+            float: left;
+        }
+
+        .left {
+            width: 10%;
+        }
+
+        .right {
+            width: 90%;
+        }
+
+        .row {
+            height: 50%;
+        }
+
+        .narrow {
+            width: 40%;
+        }
+
+        .wide {
+            width: 60%;
+        }
+
+        .bggr {
+            background-color: green;
+        }
+
+        .bgor {
+            background-color: orange;
+        }
+
+        .bgmint {
+            background-color: greenyellow;
+        }
+
+        .bggl {
+            background-color: gray;
+        }
+
+        .bgpk {
+            background-color: pink;
+        }
+
+        .bgbl {
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col left">
+            <div class="bggr"></div>
+        </div>
+        <div class="col right">
+            <div class="row">
+                <div class="col narrow">
+                    <div class="bgor"></div>
+                </div>
+                <div class="col wide">
+                    <div class="row">
+                        <div class="bgmint"></div>
+                    </div>
+                    <div class="row">
+                        <div class="bggl"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col wide">
+                    <div class="bgpk"></div>
+                </div>
+                <div class="col narrow">
+                    <div class="bgbl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

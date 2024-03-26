@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./js/app.js" defer></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    div {
+      border: 1px solid black;
+    }
+
+    .container {
+      width: 450px;
+      height: 400px;
+      margin: 0 auto;
+    }
+
+    .col {
+      float: left;
+      width: 50%;
+      height: 100%;
+    }
+
+    .col div {
+      width: 100%;
+    }
+
+    .row {
+      height: 40%;
+
+    }
+
+    .row1 {
+      height: 60%;
+    }
+
+    .bgiv {
+      background-color: ivory;
+    }
+
+    .bgrd {
+      background-color: rgb(210, 56, 56);
+    }
+
+    .bgbl {
+      background-color: rgb(95, 95, 225);
+    }
+
+    .bgpk {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col">
+      <div class="row bgiv"></div>
+      <div class="row1 bgrd"></div>
+    </div>
+    <div class="col">
+      <div class="row1 bgbl"></div>
+      <div class="row bgpk"></div>
+    </div>
+  </div>
+</body>
+
+</html>
