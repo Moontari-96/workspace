@@ -1,8 +1,0 @@
-import java.lang.*;
-public class Exam_01 
-{
-	public static void main(String[] ar) //초기 실행위치 
-	{
-		system.out.println("Hello world");
-	}
-}

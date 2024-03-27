@@ -1,8 +1,0 @@
-
-public class Exam_02 {
-	public static void main(String[] args) {
-		// byte 범위 -128 ~ 127
-		byte a = 127;
-		System.out.println(a);
-	}
-}
