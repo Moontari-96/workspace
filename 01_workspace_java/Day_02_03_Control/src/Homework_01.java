@@ -41,7 +41,7 @@ public class Homework_01 {
 		if (score >= 80) {
 			System.out.println("당신은 축잘알이시군요 👍👍");
 		} else {
-			System.out.println("축알못 👎👎");
+			System.out.println("알못 중에 알못 축알못 👎👎");
 		}
 
 	}
