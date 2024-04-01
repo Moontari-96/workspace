@@ -16,19 +16,41 @@ public class Quiz_06 {
 			System.out.println("3. 출금하기");
 			System.out.println("4. 종료하기");
 			System.out.print(">> ");
-			num = Integer.parseInt(sc.nextLine());
+			while (true) {
+				try {
+					num = Integer.parseInt(sc.nextLine());
+					break;
+				} catch (Exception e) {
+					System.out.println("숫자만 입력해주세요.");
+				}
+			}
+
 			if (num == 1) {
 				System.out.println("현재 보유잔액은 " + chk + "입니다.");
 			} else if (num == 2) {
 				System.out.println("얼마를 입급 하시겠습니까?");
 				System.out.print(">> ");
-				inp = Integer.parseInt(sc.nextLine());
+				while (true) {
+					try {
+						inp = Integer.parseInt(sc.nextLine());
+						break;
+					} catch (Exception e) {
+						System.out.println("숫자만 입력해주세요.");
+					}
+				}
 				System.out.println(inp + "원이 입금되었습니다.");
 				chk += inp; // 기존 잔액과 입급 금액을 합쳐서 보관
 			} else if (num == 3) {
 				System.out.println("얼마를 출금 하시겠습니까?");
 				System.out.print(">> ");
-				inp = Integer.parseInt(sc.nextLine());
+				while (true) {
+					try {
+						inp = Integer.parseInt(sc.nextLine());
+						break;
+					} catch (Exception e) {
+						System.out.println("숫자만 입력해주세요.");
+					}
+				}
 				if (chk >= inp) {
 					System.out.println(inp + "원이 출금되었습니다.");
 					chk -= inp; // 기존 잔액과 출금 금액을 빼서 보관
@@ -45,4 +67,5 @@ public class Quiz_06 {
 			System.out.println("");
 		}
 	}
+
 }

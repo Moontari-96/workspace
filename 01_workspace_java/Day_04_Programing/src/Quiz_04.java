@@ -5,14 +5,26 @@ public class Quiz_04 {
 		Scanner sc = new Scanner(System.in);
 		int bal = 0;
 		int charge = 0;
+		int menu = 0;
+		int stake = 0;
+		int choice = 0;
+
 		while (true) {
-			System.out.println("경마게임에 오신 것을 환영합니다.");
-			System.out.println("1. 게임 시작");
-			System.out.println("2. 잔액 충전");
-			System.out.println("3. 잔액 조회");
-			System.out.println("4. 종료");
-			System.out.print(">>");
-			int menu = Integer.parseInt(sc.nextLine());
+			while (true) {
+				try {
+					System.out.println("경마게임에 오신 것을 환영합니다.");
+					System.out.println("1. 게임 시작");
+					System.out.println("2. 잔액 충전");
+					System.out.println("3. 잔액 조회");
+					System.out.println("4. 종료");
+					System.out.print(">>");
+					menu = Integer.parseInt(sc.nextLine());
+					break;
+				} catch (Exception e) {
+					System.out.println("숫자만 입력해주세요.");
+					System.out.println("");
+				}
+			}
 			exit: if (menu == 1) {
 				int target = (int) (Math.random() * 3 + 1);
 				System.out.println(target);
@@ -21,12 +33,26 @@ public class Quiz_04 {
 				System.out.println("2번말 : 2월달 연습 기록이 가장 좋았던 젊은말");
 				System.out.println("3번말 : 떠오르는 신예 말");
 				System.out.print(">>");
-				int choice = Integer.parseInt(sc.nextLine());
-				System.out.println(choice + "번 말을 선택하셨습니다.");
 				while (true) {
-					System.out.println("얼마를 베팅하시겠습니까 ??");
-					System.out.print(">>");
-					int stake = Integer.parseInt(sc.nextLine());
+					try {
+						choice = Integer.parseInt(sc.nextLine());
+						System.out.println(choice + "번 말을 선택하셨습니다.");
+						break;
+					} catch (Exception e) {
+						System.out.println("숫자만 입력해주세요.");
+					}
+				}
+				while (true) {
+					while (true) {
+						try {
+							System.out.println("얼마를 베팅하시겠습니까 ??");
+							System.out.print(">>");
+							stake = Integer.parseInt(sc.nextLine());
+							break;
+						} catch (Exception e) {
+							System.out.println("숫자만 입력해주세요.");
+						}
+					}
 					if (stake <= bal) {
 						if (choice == target) {
 							System.out.println("베팅한 " + choice + "번 말이 승리하였습니다!!");
@@ -47,9 +73,16 @@ public class Quiz_04 {
 					}
 				}
 			} else if (menu == 2) {
-				System.out.println("얼마를 충전하시겠습니까?");
-				System.out.print(">>");
-				charge = Integer.parseInt(sc.nextLine());
+				while (true) {
+					try {
+						System.out.println("얼마를 충전하시겠습니까?");
+						System.out.print(">>");
+						charge = Integer.parseInt(sc.nextLine());
+						break;
+					} catch (Exception e) {
+						System.out.println("숫자만 입력해주세요.");
+					}
+				}
 				System.out.println(charge + "만큼 충전되었습니다.");
 				System.out.print("현재 잔액은 다음과 같습니다  :");
 				System.out.println((bal += charge) + " 원");
