@@ -69,6 +69,13 @@ public class Tv {
 	// 인스턴스가 실행될 때 실행됨
 	// 초기값 넣는 코드로 사용
 	// source 내 generate 사용하면 한번에 생성가능
+	// 생성자는 생성안할 시 자동생산됨
+
+	public Tv() {
+		// Default Constructor
+		// Over loading 문법
+	}
+
 	public Tv(int price, int channel, int volume) {
 		this.price = price;
 		this.channel = channel;
