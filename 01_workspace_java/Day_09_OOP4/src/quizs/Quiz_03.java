@@ -23,6 +23,7 @@ public class Quiz_03 {
 		Scanner sc = new Scanner(System.in);
 		ContactManager cont = new ContactManager();
 		while (true) {
+			// 메뉴선택
 			System.out.println("==== 연락처 관리 프로그램 ====");
 			System.out.println("1. 신규 연락처 등록"); // C
 			System.out.println("2. 연락처 목록 출력"); // R
@@ -33,7 +34,7 @@ public class Quiz_03 {
 			System.out.print(">> ");
 			int menu = Integer.parseInt(sc.nextLine());
 			if (menu == 1) {
-
+				// 신규 연락처 등록
 				System.out.print("ID 입력 : ");
 				String id = sc.nextLine();
 
@@ -46,6 +47,7 @@ public class Quiz_03 {
 				cont.addContact(new Contact(id, name, phone));
 
 			} else if (menu == 2) {
+				// 연락처 목록 출력
 				if (cont.ContIndex() == 0) {
 					System.out.println("등록된 연락처가 없습니다.");
 					continue;
@@ -56,19 +58,21 @@ public class Quiz_03 {
 					System.out.println(conts[i].getId() + "\t" + conts[i].getName() + "\t" + conts[i].getPhone());
 				}
 			} else if (menu == 3) {
-				int count = 0;
+				// 연락처 검색
+				cont.setCount(0);
 				Contact[] conts = cont.getCont();
 				System.out.print("검색할 이름을 입력하세요 : ");
 				String name = sc.nextLine();
 				for (int i = 0; i < cont.ContIndex(); i++) {
 					if (conts[i].getName().contains(name))
 						System.out.println(conts[i].getId() + "\t" + conts[i].getName() + "\t" + conts[i].getPhone());
-					count++;
+					cont.setCount(1);
 				}
-				if (count == 0) {
+				if (cont.Contcount() == 0) {
 					System.out.println("검색 내용이 없습니다.");
 				}
 			} else if (menu == 4) {
+				// 연락처 삭제
 				Contact[] conts = cont.getCont();
 				System.out.println("ID\t\t이름\t\t번호");
 				for (int i = 0; i < cont.ContIndex(); i++) {
@@ -77,12 +81,15 @@ public class Quiz_03 {
 				System.out.print("삭제할 ID를 입력하세요 : ");
 				String id = sc.nextLine();
 				for (int i = 0; i < cont.ContIndex(); i++) {
-					if (conts[i].getId().contains(id)) {
-						conts[i] = null;
-						cont.setIndex(0);
+					if (conts[i].getId().equals(id)) {
+						for (int j = i; i < cont.ContIndex(); i++) {
+							conts[j] = conts[j + 1];
+						}
+						// cont.setIndex();
 					}
 				}
 			} else if (menu == 5) {
+				// 연락처 수정
 				Contact[] conts = cont.getCont();
 				System.out.println("ID\t\t이름\t\t번호");
 				for (int i = 0; i < cont.ContIndex(); i++) {
