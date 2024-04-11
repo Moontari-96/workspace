@@ -10,6 +10,6 @@ public class Dog extends Animal {
 
 	public String sound() {
 //		System.out.println(this.getName() + " : " + "BowWow");
-		return this.getName() + " : " + "BowWow";
+		return "BowWow";
 	}
 }

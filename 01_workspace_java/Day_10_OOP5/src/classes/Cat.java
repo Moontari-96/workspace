@@ -1,7 +1,6 @@
 package classes;
 
 public class Cat extends Animal {
-
 	public Cat() {
 	}
 
@@ -11,6 +10,6 @@ public class Cat extends Animal {
 
 	public String sound() {
 //		return System.out.println(this.getName() + " : " + "Meow");
-		return this.getName() + " : " + "Meow";
+		return "Meow";
 	}
 }

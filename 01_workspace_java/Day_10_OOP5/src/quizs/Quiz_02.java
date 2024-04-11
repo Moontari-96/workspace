@@ -6,10 +6,11 @@ import classes.Dog;
 
 public class Quiz_02 {
 	public static void main(String[] args) {
+
 		Animal[] animals = new Animal[5];
 
 		animals[0] = new Dog("Hodu");
-		animals[1] = new Cat("Hodu");
+		animals[1] = new Cat("Nabi");
 		animals[2] = new Dog("Browny");
 
 		for (int i = 0; i < 3; i++) {
