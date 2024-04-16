@@ -108,9 +108,8 @@ public class Main_1 {
 				String singer = sc.nextLine();
 				String date = manager.writedate();
 				MusicDTO modify = new MusicDTO(id, title, singer, date);
-				if (manager.modifyMusic(modify) == true) {
-					System.out.println("수정완료!!");
-				} else {
+				boolean result = manager.modifyMusic(modify);
+				if (!result) {
 					System.out.println("ID를 확인해주세요.");
 				}
 			} else if (menu == 0) {

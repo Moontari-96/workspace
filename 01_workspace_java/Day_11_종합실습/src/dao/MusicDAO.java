@@ -51,11 +51,27 @@ public class MusicDAO {
 	}
 
 	public boolean modifyMusic(MusicDTO modify) {
-		for (int i = 0; i < music.size(); i++) {
-			if (music.get(i).getId().equals(modify.getId())) {
-				music.get(i).setTitle(modify.getTitle());
-				music.get(i).setSinger(modify.getSinger());
-				music.get(i).setDate(modify.getDate());
+//		for (int i = 0; i < music.size(); i++) {
+//			if (music.get(i).getId().equals(modify.getId())) {
+//				music.get(i).setTitle(modify.getTitle());
+//				music.get(i).setSinger(modify.getSinger());
+//				music.get(i).setDate(modify.getDate());
+//				return true;
+//			}
+//		}
+//		for (MusicDTO musics : music) {
+//			if (musics.getId().equals(modify.getId())) {
+//				musics.setTitle(modify.getTitle());
+//				musics.setSinger(modify.getSinger());
+//				musics.setDate(modify.getDate());
+//				return true;
+//			}
+//		}
+		int index = 0;
+		for (MusicDTO musics : music) {
+			if (musics.getId().equals(modify.getId())) {
+				music.add(index, modify);
+				music.remove(musics);
 				return true;
 			}
 		}
