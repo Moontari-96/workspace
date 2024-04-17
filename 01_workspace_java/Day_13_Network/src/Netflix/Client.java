@@ -33,12 +33,10 @@ public class Client {
 				System.out.println("5. 영화 정보 변경 (ID로 변경)");
 				System.out.println(">>>");
 				int menu = Integer.parseInt(sc.nextLine());
-
 				dos.writeInt(menu);
 				dos.flush();
 
 				if (menu == 1) {
-
 					System.out.println("등록할 영화 id :");
 					String id = sc.nextLine();
 					dos.writeUTF(id);
@@ -52,8 +50,6 @@ public class Client {
 					String date = sc.nextLine();
 					dos.writeUTF(date);
 
-					dos.writeUTF(date);
-					index++;
 				} else if (menu == 2) {
 //				String [] movies = new String[] {dis.readUTF()};
 //					String [] movie = new String[];
