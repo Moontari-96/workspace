@@ -3,13 +3,13 @@ package view;
 import java.util.List;
 import java.util.Scanner;
 
-import dao.Contact_DAO;
-import dto.Contact_DTO;
+import dao.ContactDAO;
+import dto.ContactDTO;
 
 public class Contact {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Contact_DAO dao = new Contact_DAO();
+		ContactDAO dao = new ContactDAO();
 		while(true) {
 			System.out.println("<< 연락처 >>");
 			System.out.println("1. 신규 등록");
@@ -22,18 +22,18 @@ public class Contact {
 			int menu = Integer.parseInt(sc.nextLine());
 			try {
 				if (menu == 1) {
-					System.out.println("이름 : ");
+					System.out.println("이 름 : ");
 					String name = sc.nextLine();
 					
-					System.out.println("번호 : ");
+					System.out.println("전화 번호 : ");
 					String phone = sc.nextLine();
 					
-					dao.addContact(new Contact_DTO(name, phone));
+					dao.addContact(new ContactDTO(0, name, phone, null));
 				} else if (menu == 2) {
-					List<Contact_DTO> list = dao.checkContact();
-					System.out.println("ID\t이름\t전화번호");
-					for (Contact_DTO dto : list) {
-						System.out.println(dto.getId() + "\t" + dto.getName() + "\t" + dto.getPhone());
+					List<ContactDTO> list = dao.selectContact();
+					System.out.println("ID\t이름\t전화번호\tRegDate");
+					for (ContactDTO dto : list) {
+						System.out.println(dto.getId() + "\t" + dto.getName() + "\t" + dto.getPhone() + "\t" + dto.getFormedDate())  ;
 					}
 				System.out.println("");
 				} else if (menu == 3) {
@@ -57,7 +57,7 @@ public class Contact {
 						
 						System.out.println("수정할 번호 : ");
 						String phone = sc.nextLine();
-						int result = dao.changeContact(new Contact_DTO(id,name,phone));
+						int result = dao.changeContact(new ContactDTO(id,name,phone,null));
 						if (result > 0) {
 							System.out.println("수정에 성공했습니다!!");
 							System.out.println("");
@@ -70,11 +70,11 @@ public class Contact {
 				} else if (menu == 5) {
 					System.out.println("검색할 이름를 입력하세요. ");
 					String target = sc.nextLine();
-					List<Contact_DTO> list = dao.searchContact(target);
+					List<ContactDTO> list = dao.searchContact(target);
 					if (list.size() != 0) {
-						System.out.println("ID\t이름\t전화번호");
-						for (Contact_DTO dto : list) {
-							System.out.println(dto.getId() + "\t" + dto.getName() + "\t" + dto.getPhone());
+						System.out.println("ID\t이름\t전화번호\tRegDate");
+						for (ContactDTO dto : list) {
+							System.out.println(dto.getId() + "\t" + dto.getName() + "\t" + dto.getPhone() + "\t" + dto.getFormedDate());
 						}
 						System.out.println("");
 					} else {
@@ -90,7 +90,7 @@ public class Contact {
 				}
 				
 			} catch (Exception e) {
-				e.printStackTrace();
+				e.printStackTrace(); // 개발자가 보는 에러 메세지
 				System.out.println("오류로 인한 장애가 발생했습니다. 관리자 문의 부탁드립니다.");
 			}
 		}

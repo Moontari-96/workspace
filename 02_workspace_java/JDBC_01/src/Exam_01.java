@@ -1,6 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.util.Scanner;
 // OJDBC 8 버전 이후 부터는 자동커밋
 public class Exam_01 {
@@ -30,20 +30,21 @@ public class Exam_01 {
 		String dbPW = "kedu";
 		
 		// DBMS 접속
-		Connection con = DriverManager.getConnection(dbURL, dbID, dbPW); // **접속 방법 외우기**
-		// Query 전달을 위한 Statement 객체 확보 / Query 쓸 수 있는 편집기 객체 확보 
-		Statement stat = con.createStatement(); 
-		
 		// stat.executeUpdate(); // Insert, Update, Delete / DB에 영향을 줄 때 / return 변화된 행의 갯수 
 		// stat.executeQuery(); // Select / DB에 영향을 안줄 때 
+		// String sql = "insert into cafe values(cafe_seq.nextval,'"+name+"', " + price + ")";
+		// Query 전달을 위한 Statement 객체 확보 / Query 쓸 수 있는 편집기 객체 확보 
+		// -> 보안성, 성능, 편의성
+		// -> PreparedStatement
+		Connection con = DriverManager.getConnection(dbURL, dbID, dbPW); // **접속 방법 외우기**
+		String sql = "insert into cafe values(cafe_seq.nextval,?, ?)";
+		PreparedStatement pstat = con.prepareStatement(sql);
+		pstat.setString(1, name);
+		pstat.setInt(2, price);
+		int result = pstat.executeUpdate();
 		
-		String sql = "insert into cafe values(cafe_seq.nextval,'"+ name + "', "+ price + ")";
-		int result = stat.executeUpdate(sql);
-		
-		if (result > 0) {
-			System.out.println("입력 성공!");
-		}
-
+//		Statement stat = con.createStatement(); 
+//		int result = stat.executeUpdate(sql);
 		con.close();
 		
 	}
