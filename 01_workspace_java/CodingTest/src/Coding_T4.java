@@ -6,7 +6,11 @@ public class Coding_T4 {
 		String low_s = s2.toLowerCase();
 		String[] arr = low_s.split(" ");
 		for (String str : arr) {
-			answer += str.substring(0, 1).toUpperCase() + str.substring(1) + " ";
+			try {
+				answer += str.substring(0, 1).toUpperCase() + str.substring(1) + " ";
+			} catch (Exception e) {
+				answer += " ";
+			}
 		}
 		if (s2.charAt(s2.length() - 1) != ' ') {
 			answer = answer.substring(0, answer.length() - 1);
