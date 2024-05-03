@@ -1,20 +1,16 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
+import common.Statics;
 import dto.ServerDTO;
 
 
 public class ServerDAO {
-	private String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String dbID = "kedu";
-	private String dbPW = "kedu";
 	private Connection getConnection() throws Exception {
-		return DriverManager.getConnection(dbURL, dbID, dbPW);
+		return Statics.bds.getConnection();
 	}
 	
 	public int addMembers(ServerDTO dto) throws Exception {
@@ -31,17 +27,19 @@ public class ServerDAO {
 		}
 	}
 	
+	
+	
 	public boolean validMembers(ServerDTO dto) throws Exception {
 //		String sql = "select * from members where id = '" + dto.getId() + "' and pw = '" + dto.getPw() + "'";
 		String sql = "select * from members where id = ? and pw = ?";
 		System.out.println(sql);
 		try(
-			Connection con = this.getConnection();
+				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
 			
 				) {
-			pstat.setString(1, dto.getId());
-			pstat.setString(2, dto.getPw());
+				pstat.setString(1, dto.getId());
+				pstat.setString(2, dto.getPw());
 			try (
 					ResultSet rs = pstat.executeQuery();
 					)
@@ -54,3 +52,5 @@ public class ServerDAO {
 		
 	}	
 }
+
+

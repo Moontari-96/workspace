@@ -13,18 +13,18 @@ import dao.ServerDAO;
 import dto.ServerDTO;
 
 public class Server {
-//	public static String getSHA512(String input){
-//	    String toReturn = null;
-//	    try {
-//	        MessageDigest digest = MessageDigest.getInstance("SHA-512");
-//	        digest.reset();
-//	        digest.update(input.getBytes("utf8"));
-//	        toReturn = String.format("%064x", new BigInteger(1, digest.digest()));
-//	    } catch (Exception e) {
-//	        e.printStackTrace();
-//	    }
-//	    return toReturn;
-//	  }
+	public static String getSHA512(String input){
+	    String toReturn = null;
+	    try {
+	        MessageDigest digest = MessageDigest.getInstance("SHA-512");
+	        digest.reset();
+	        digest.update(input.getBytes("utf8"));
+	        toReturn = String.format("%064x", new BigInteger(1, digest.digest()));
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return toReturn;
+	}
 	public static void main(String[] args) {
 		ServerDAO dao = new ServerDAO();
 		try {
@@ -39,7 +39,7 @@ public class Server {
 				String menu = dis.readUTF();
 				if (menu.equals("1")) {
 					String id = dis.readUTF();
-					String pw = dis.readUTF();
+					String pw = getSHA512(dis.readUTF());
 					ServerDTO dto = new ServerDTO(id, pw, null);
 					System.out.println(dto.getId() + dto.getPw());
 					boolean result = dao.validMembers(dto);
@@ -48,7 +48,7 @@ public class Server {
 					dos.flush();
 				} else if (menu.equals("2")) {
 					String id = dis.readUTF();
-					String pw = dis.readUTF();
+					String pw = getSHA512(dis.readUTF());
 					String name = dis.readUTF();
 					ServerDTO dto = new ServerDTO(id, pw, name);
 					int result = dao.addMembers(dto);

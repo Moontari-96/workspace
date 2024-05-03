@@ -1,27 +1,44 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import commons.Statics;
 import dto.ContactDTO;
 
 public class ContactDAO {
+
+//	private Connection getDB() throws Exception {
+//		String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
+//		String dbID = "contact";
+//		String dbPW = "contact";
+//		return DriverManager.getConnection(dbURL, dbID, dbPW);
+//	}
+	
+	// private static BasicDataSource bds = new BasicDataSource(); // 공통모듈로 제외시키는 방법도 있고 다른방법도 있으나 나중에 적용, 우선 전역변수화 시켜서 사용
+	
+//	public ContactDAO() {
+//		bds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
+//		bds.setUsername("contact");
+//		bds.setPassword("contact");
+//		bds.setInitialSize(20);
+//	}
+//	
 	private Connection getDB() throws Exception {
-		String dbURL = "jdbc:oracle:thin:@localhost:1521:xe";
-		String dbID = "contact";
-		String dbPW = "contact";
-		return DriverManager.getConnection(dbURL, dbID, dbPW);
+		return Statics.bds.getConnection();
 	}
+	
 
 	public int addContact(ContactDTO dto) throws Exception {
 		String sql = "insert into contact values(contact_seq.nextval, ?, ?, sysdate)";
-		try (Connection con = this.getDB(); PreparedStatement pstat = con.prepareStatement(sql);) {
+		try (
+				Connection con = this.getDB(); 
+				PreparedStatement pstat = con.prepareStatement(sql);
+				) {
 			pstat.setString(1, dto.getName());
 			pstat.setString(2, dto.getPhone());
 			int result = pstat.executeUpdate();
@@ -66,7 +83,7 @@ public class ContactDAO {
 				PreparedStatement pstat = con.prepareStatement(sql);
 		) 
 		{
-			pstat.setInt(1, target);
+			pstat.setInt(0, target);
 			try(
 					ResultSet rs = pstat.executeQuery();
 					) {
