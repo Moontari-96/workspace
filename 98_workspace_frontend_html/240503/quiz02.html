@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      border: 1px solid;
+    }
+
+    .container {
+      width: 500px;
+      height: 600px;
+      display: flex;
+    }
+
+    .col1 {
+      background-color: tomato;
+      flex: .5;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .col {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .imgbox {
+      width: 100%;
+      flex: 2;
+    }
+
+    .imgbox img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .long {
+      flex: 3;
+      background-color: cornflowerblue;
+    }
+
+    .bisque {
+      background-color: bisque;
+      flex: 4;
+    }
+
+    .violet {
+      background-color: violet;
+      flex: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col1">
+      Flex Practice
+    </div>
+    <div class="col">
+      <div class="imgbox">
+        <img src="../240312/images/apple.jpg" alt="">
+      </div>
+      <div class="long"></div>
+    </div>
+    <div class="col">
+      <div class="bisque"></div>
+      <div class="violet"></div>
+    </div>
+  </div>
+</body>
+
+</html>

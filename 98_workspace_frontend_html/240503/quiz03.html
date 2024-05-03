@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      /* border: 1px solid; */
+    }
+
+    .container {
+      margin: auto;
+      width: 900px;
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      flex: .8;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header_top {
+      flex: 2;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .header_top .tit {
+      background-color: #006241;
+    }
+
+    .header_top div {
+      width: 100%;
+      height: 100%;
+    }
+
+
+
+    .header_top div img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .header_top div:nth-child(1) {
+      flex: 1.5;
+    }
+
+    .header_top div:nth-child(2) {
+      flex: 8;
+    }
+
+    .header_top div:nth-child(3) {
+      flex: 1;
+    }
+
+    .menu {
+      flex: 1;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .menu div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: black;
+      background-color: white;
+      border: none;
+      transition: .5s;
+    }
+
+    .body {
+      flex: 4;
+      display: flex;
+    }
+
+    .content {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content_top {
+      flex: 2;
+      width: 100%;
+      height: 100%;
+    }
+
+    .imgcont {
+      flex: 1;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .content_top .imgbox {
+      padding: 20px 50px;
+    }
+
+    .imgbox {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+    }
+
+    .imgbox img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .aside {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .login_tit {
+      flex: .8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .login_inp {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login_inp div {
+      height: 100%;
+    }
+
+    .login_inp div input {
+      width: 100%;
+      height: 100%;
+    }
+
+    .login_btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .email {
+      flex: 2;
+    }
+
+    .footer {
+      flex: .4;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      text-align: center;
+    }
+
+    @media (hover: hover) {
+      .menu div:hover {
+        color: white;
+        background-color: #006241;
+        cursor: pointer;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header_top">
+        <div class="logo">
+          <img src="./images/3034007-slide-s-3-whats-the-difference-between-a-logo-and-a-symbol.jpg" alt="">
+        </div>
+        <div class="tit">
+          <img src="./images/img.png" alt="">
+        </div>
+        <div>Reserved</div>
+      </div>
+      <div class="menu">
+        <div>Home</div>
+        <div>About</div>
+        <div>Portpolio</div>
+        <div>Contact</div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="content">
+        <div class="content_top">
+          <div class="imgbox">
+            <img src="https://picsum.photos/150/100?random=4" alt="">
+          </div>
+        </div>
+        <div class="imgcont">
+          <div class="imgbox">
+            <img src="https://picsum.photos/150/100?random=1" alt="">
+          </div>
+          <div class="imgbox">
+            <img src="https://picsum.photos/150/100?random=2" alt="">
+          </div>
+          <div class="imgbox">
+            <img src="https://picsum.photos/150/100?random=3" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="aside">
+        <div class="login">
+          <div class="login_tit">Login Box</div>
+          <div class="login_inp">
+            <div>
+              <input type="text" placeholder="Input your ID">
+            </div>
+            <div>
+              <input type="password" placeholder="Input yout Password">
+            </div>
+          </div>
+          <div class="login_btn">
+            <button type="button">로그인</button>
+            <button type="button">회원가입</button>
+          </div>
+        </div>
+        <div class="email">Email</div>
+      </div>
+    </div>
+    <div class="footer">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est officiis nesciunt nulla aspernatur perspiciatis
+      libero, ad quisquam placeat aut molestias voluptatem corporis,
+    </div>
+  </div>
+</body>
+
+</html>

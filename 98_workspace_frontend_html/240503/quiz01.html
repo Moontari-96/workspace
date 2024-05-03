@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      border: 1px solid;
+    }
+
+    .container {
+      width: 400px;
+      height: 400px;
+    }
+
+    .container .row {
+      height: 50%;
+      width: 100%;
+      display: flex;
+    }
+
+    .container .row div {
+      height: 100%;
+      width: 35%;
+
+      font-size: 20px;
+    }
+
+    .pink {
+      background-color: pink;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .blue {
+      background-color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container .row .wide {
+      width: 65%;
+    }
+
+    .yellow {
+      background-color: yellow;
+    }
+
+    .violet {
+      background-color: violet;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="pink wide">col1</div>
+      <div class="blue">col2</div>
+    </div>
+    <div class="row">
+      <div class="yellow"></div>
+      <div class="violet wide"></div>
+    </div>
+  </div>
+</body>
+
+</html>

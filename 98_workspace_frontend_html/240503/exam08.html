@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      border: 1px solid;
+    }
+
+    .container {
+      width: 600px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .box1 {
+      flex: 1;
+    }
+
+    .box2 {
+      flex: 1;
+    }
+
+    .box3 {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 전체에 box-sizing border-box
+  div 전체에 1px solid black의 border
+  container에 넓이 600px height 500px -->
+  <div class="container">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+  </div>
+</body>
+
+</html>
