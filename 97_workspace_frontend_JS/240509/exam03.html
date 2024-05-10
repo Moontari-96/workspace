@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // Function : 함수 - 자바의 메서드와 같은 개념
+    // 자바스크립트의 function은 First Class Function ( 일등급 함수 ) 라고도 하는데
+    // 함수의 이름을 하나의 주소값으로서 다룰 수 있다는 것이 이유.
+    // hoisting : 함수의 선언은 코드상 어디에 작성해도, 모든 스크립트 코드의 최상위에 선언된것으로 처리됨.
+    // 함수의 이름은 함수의 실행 코드가 저장된 메모리 공간(Text(Code)영역)의 주소
+
+    function plus(num1, num2) {
+      return num1 + num2;
+    };
+
+    let abc = plus;
+    console.log(abc(20, 30));
+    let result = plus(0, 5);
+    console.log(result);
+
+    // 익명 함수
+    let minus = function (num1, num2) {
+      return num1 - num2;
+    }
+    let mply = function (num1, num2) {
+      return num1 * num2;
+    }
+
+    let result2 = (function (num1, num2) {
+      return num1 * num2
+    })(3, 10); // IIFE ( Instantly Invoked Function Expression )
+    console.log(result2);
+
+    function test() {
+      return function (num1, num2) {
+        return num1 / num2;
+      };
+    }
+    let result3 = test()(10, 2);
+    console.log(result3);
+  </script>
+</body>
+
+</html>

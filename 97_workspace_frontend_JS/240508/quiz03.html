@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 테이블 만들기 -->
+  <script>
+    let row = prompt('행 입력');
+    let col = prompt('열 입력');
+    let count = 1;
+    document.write('<table border="1">');
+    for (let i = 0; i < row; i++) {
+      document.write('<tr>');
+      for (let j = 0; j < col; j++) {
+        document.write('<td>');
+        document.write(count++);
+        document.write('</td>');
+      }
+      document.write('</tr>');
+    }
+    document.write('</table>');
+  </script>
+</body>
+
+</html>

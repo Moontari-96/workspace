@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    fieldset {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <fieldset>
+    <legend>Fruits</legend>
+    <div id="fruitbox"></div>
+  </fieldset>
+  <div>
+    <input type="text" id="front" placeholder="앞에 추가할 값">
+    <button id="fplus">앞쪽에 추가</button>
+    <button id="fminus">앞에서 삭제</button>
+  </div>
+  <div>
+    <input type="text" id="back" placeholder="뒤에 추가할 값">
+    <button id="bplus">뒤쪽에 추가</button>
+    <button id="bminus">뒤에서 삭제</button>
+  </div>
+  <script>
+    let fruitbox = document.getElementById("fruitbox");
+
+    let front = document.getElementById("front");
+    let back = document.getElementById("back");
+
+    let fplus = document.getElementById("fplus");
+    let fminus = document.getElementById("fminus");
+    let bplus = document.getElementById("bplus");
+    let bminus = document.getElementById("bminus");
+
+    let arr = ["Apple", "Orange", "Tomato", "Strawberry", "Banana", "Grape", "Kiwi"];
+
+    fruitbox.innerHTML = arr;
+
+    fplus.onclick = function () {
+      if (front.value == "") {
+        alert("값을 확인해주세요.")
+      } else {
+        arr.unshift(front.value);
+        front.value = "";
+        fruitbox.innerHTML = arr;
+      }
+    }
+    fminus.onclick = function () {
+      arr.shift();
+      fruitbox.innerHTML = arr;
+    }
+    bplus.onclick = function () {
+      if (back.value == "") {
+        alert("값을 확인해주세요.")
+      } else {
+        arr.push(back.value);
+        back.value = "";
+        fruitbox.innerHTML = arr;
+      }
+    }
+    bminus.onclick = function () {
+      arr.pop();
+      fruitbox.innerHTML = arr;
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>

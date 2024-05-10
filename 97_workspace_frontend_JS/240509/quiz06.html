@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    .container {
+      width: 300px;
+      height: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #changebox {
+      flex: 8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .red {
+      background-color: palevioletred;
+    }
+
+    .green {
+      background-color: green;
+    }
+
+    .blue {
+      background-color: cornflowerblue;
+    }
+
+    .btn_cont {
+      flex: 2;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .btn_cont button {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="changebox">I'm Box!</div>
+    <div class="btn_cont">
+      <button id="red">RED</button>
+      <button id="green">GREEN</button>
+      <button id="blue">BLUE</button>
+    </div>
+  </div>
+
+  <script>
+    let red = document.getElementById("red");
+    let green = document.getElementById("green");
+    let blue = document.getElementById("blue");
+    let changebox = document.getElementById("changebox");
+
+    red.onclick = function () {
+      changebox.setAttribute("class", red.id)
+    }
+    green.onclick = function () {
+      changebox.setAttribute("class", green.id)
+    }
+    blue.onclick = function () {
+      changebox.setAttribute("class", blue.id)
+    }
+  </script>
+</body>
+
+</html>

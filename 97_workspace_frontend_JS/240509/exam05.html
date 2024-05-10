@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="pop">Pop!</button>
+
+  <script>
+    // Javascript에서 Event란?
+    // 브라우저 위에서 취하는 모든 행동
+    // ex) 좌클릭, 마우스 움직임, 키보드 타이핑, 마우스휠 움직임, 브라우저 크기 조정 등등...
+
+    // Event Source : 이벤트 발생의 근원 Element
+    // Event Listner : 이벤트 근원 근원 Element가 감지할 수 있는 이벤트 종류
+    // Event Handler : 이벤트 발생 시 처리 동작을 가지는 함수
+    
+    let btn = document.getElementById("pop");
+    btn.onclick = function pop() {alert("Pop!");}; // callback function
+
+    // btn.addEventListener("click", function name(params) {
+      
+    // })
+  </script>
+</body>
+
+</html>

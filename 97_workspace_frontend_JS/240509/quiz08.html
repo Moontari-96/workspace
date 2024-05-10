@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .answer {
+      color: skyblue;
+      font-weight: bold;
+    }
+
+    .fail {
+      color: pink;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <input type="text" id="pw">
+    <input type="text" id="pwchk">
+    <p id="valuedater"></p>
+  </div>
+
+  <script>
+    let pw = document.getElementById("pw");
+    let pwchk = document.getElementById("pwchk");
+    let valuedater = document.getElementById("valuedater");
+
+    pwchk.onkeyup = function (e) {
+      if (e.key == "Enter") {
+        if (pw.value == pwchk.value) {
+          valuedater.innerHTML = "패스워드가 일치합니다."
+          valuedater.setAttribute("class", "answer")
+        } else {
+          valuedater.innerHTML = "패스워드가 일치하지 않습니다."
+          valuedater.setAttribute("class", "fail")
+        }
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

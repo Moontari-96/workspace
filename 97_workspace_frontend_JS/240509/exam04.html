@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    function plus(num1, num2) {
+      return num1 + num2;
+    }
+
+    function minus(num1, num2) {
+      return num1 - num2;
+    }
+
+    function temp(func, num1, num2) {
+      return func(num1, num2);
+    }
+    let result = temp(
+      function (num1, num2) {
+        return num1 * num2
+      }, 10, 5
+    );
+    console.log(result)
+
+    function test() {
+      return function (num1, num2) {
+        return num1 / num2;
+      };
+    }
+    let result2 = test()(10, 2);
+    console.log(result2);
+  </script>
+</body>
+
+</html>

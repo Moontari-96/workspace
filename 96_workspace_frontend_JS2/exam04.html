@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>btn1</button>
+  <button>btn2</button>
+  <button>btn3</button>
+  <script>
+    let buttons = document.getElementsByTagName("button");
+    // for (let i = 0; i < buttons.length; i++) {
+    for (let button of buttons) { // 자바에서 for-each문법 자바스크립트에서는 for of 로 사용 
+      button.addEventListener('click', function () {
+        alert("Test");
+      })
+
+    }
+
+  </script>
+</body>
+
+
+
+</html>

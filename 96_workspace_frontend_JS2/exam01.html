@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script>
+    // Javascript 배열
+    // let arr1 = new Array();
+    let arr = ['Hello', 10, 3.14, function () { return "Func"; }, document.getElementById('box'), [1, 2, function () { return [1, 2, 3]; }]];
+    // arr[0] = 'Hello';
+    // arr[1] = 10;
+    // arr[2] = 3.14;
+    // arr[3] = function () { return "Func"; }
+    // arr[4] = document.getElementById('box');
+
+    // console.log(arr[0]);
+    // console.log(arr[1]);
+    // console.log(arr);
+    // console.log(arr.length);
+
+    let result = arr[3]();
+    console.log(result);
+    arr[4].innerHTML = "TEST";
+    console.log(arr[5][2]()[0]);
+  </script>
+</body>
+
+</html>

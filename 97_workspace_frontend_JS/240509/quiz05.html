@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      border: 1px solid;
+      width: 100%;
+    }
+
+    .container {
+      width: 200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+
+    #result {
+      padding: 10px;
+      text-align: center;
+    }
+
+    #btn {
+      height: 100%;
+      padding: 10px 15px;
+    }
+
+    .btn_cont {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <input type="text" id="num1" placeholder="첫 번째 수">
+    </div>
+    <div>
+      <input type="text" id="num2" placeholder="두 번째 수">
+    </div>
+    <div class="btn_cont">
+      <button id="btn">+</button>
+    </div>
+    <div id="result">
+      Result
+    </div>
+  </div>
+
+  <script>
+    let num1 = document.getElementById("num1");
+    let num2 = document.getElementById("num2");
+    let btn = document.getElementById("btn");
+    let resultDiv = document.getElementById("result");
+
+    btn.onclick = function () {
+      resultDiv.innerHTML = Number(num1.value) + Number(num2.value);
+    }
+  </script>
+</body>
+
+</html>

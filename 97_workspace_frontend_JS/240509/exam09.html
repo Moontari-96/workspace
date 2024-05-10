@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      border: 1px solid black;
+    }
+
+    #box {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script>
+    let box = document.getElementById("box");
+    document.onmousemove = function (e) {
+      box.style.top = e.y + "px";
+      box.style.left = e.x + "px";
+    }
+  </script>
+</body>
+
+</html>

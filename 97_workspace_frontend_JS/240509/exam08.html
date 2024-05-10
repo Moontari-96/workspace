@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    #box {
+      transition: .5s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    Hi Box!😊
+  </div>
+
+  <script>
+    let box = document.getElementById("box");
+
+    box.onmouseover = function name(params) {
+      box.innerHTML = "무거워 저리가!😢"
+      box.style.backgroundColor = "red";
+      box.style.color = "white";
+    }
+    box.onmouseleave = function name(params) {
+      box.innerHTML = "너무 멀리가진 말고...🥲"
+      box.style.backgroundColor = "blue";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    div {
+      border: 1px solid;
+    }
+
+    #change_box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 8;
+    }
+
+    .btn_box {
+      flex: 2;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .red {
+      background-color: pink;
+    }
+
+    .green {
+      background-color: forestgreen;
+    }
+
+    .blue {
+      background-color: dodgerblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="change_box">
+      I'm Box
+    </div>
+    <div class="btn_box">
+      <button class="color_btn" data-color="red">RED</button>
+      <button class="color_btn" data-color="green">GREEN</button>
+      <button class="color_btn" data-color="blue">BLUE</button>
+    </div>
+  </div>
+  <script>
+    let change_box = document.getElementById("change_box");
+    let color_btn = document.getElementsByClassName('color_btn');
+
+    // for (let color of color_btn) {
+    //   color.addEventListener('click', function () {
+    //     let color_name = color.innerHTML.toLocaleLowerCase();
+    //     change_box.setAttribute('class', color_name)
+    //   })
+    // }
+    for (let color of color_btn) {
+      color.addEventListener('click', function () {
+        change_box.setAttribute('style', "background-color:" + color.getAttribute("data-color"));
+      })
+    }
+
+  </script>
+</body>
+
+</html>

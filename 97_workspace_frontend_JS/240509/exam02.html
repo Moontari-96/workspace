@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <input type="text" value="JS Practice" id="txt" class="test">
+  <div id="div">Hello JS</div>
+  <script>
+    // Javascript에는 명시적 자료형이 존재하지 않아서 데이터 타입 지정 X
+    let input = document.getElementById('txt');
+    console.log(input.value);
+    console.log(input.id);
+    console.log(input.className);
+    input.value = "JS로 값 바꾸기";
+
+    let div = document.getElementById("div");
+    console.log(div.id);
+    console.log(div.innerHTML);
+    div.innerHTML = "내 맘대로 값 변경"
+
+    // 제어문
+    // if(){}
+    // for(){}
+    // while(){}
+
+  </script>
+</body>
+
+</html>

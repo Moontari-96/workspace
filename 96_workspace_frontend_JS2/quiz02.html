@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    fieldset {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <fieldset>
+    <legend>목록</legend>
+    <div id="listbox"></div>
+  </fieldset>
+  <div>
+    <input type="text" id="plus_Word" placeholder="추가할 단어를 입력하세요.">
+    <button id="plus">추가하기</button>
+  </div>
+  <div>
+    <input type="text" id="del_Word" placeholder="삭제할 단어를 입력하세요.">
+    <button id="del">삭제하기</button>
+  </div>
+  <script>
+    let listbox = document.getElementById("listbox");
+    let arr = [];
+    let plus_Word = document.getElementById("plus_Word");
+    let del_Word = document.getElementById("del_Word");
+    let plus = document.getElementById("plus");
+    let del = document.getElementById("del");
+
+    plus.onclick = function () {
+      if (plus_Word.value == "") {
+        alert("값을 확인해주세요.")
+      } else {
+        arr.push(plus_Word.value);
+        plus_Word.value = "";
+        listbox.innerHTML = arr;
+      }
+    }
+    del.onclick = function () {
+      if (del_Word.value == "") {
+        alert("값을 확인해주세요.");
+      } else {
+        let result = arr.indexOf(del_Word.value);
+        if (result == -1) {
+          alert("값을 확인해주세요.");
+          del_Word.value = "";
+        } else {
+          arr.splice(result, 1);
+          del_Word.value = "";
+          listbox.innerHTML = arr;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

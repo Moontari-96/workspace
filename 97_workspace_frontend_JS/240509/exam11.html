@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function () {
+      // 페이지 전체가 로딩된 이후에 실행될 함수
+      let btn = document.getElementById("btn");
+      btn.onclick = function () {
+        window.open("http://www.naver.com", "", "width=200,height=200")
+      }
+    }
+    window.onbeforeunload = function () {
+      // 페이지를 나갈 때 실행될 함수
+    };
+
+  </script>
+</head>
+
+<body>
+  <button id="btn">Pop!</button>
+</body>
+
+</html>

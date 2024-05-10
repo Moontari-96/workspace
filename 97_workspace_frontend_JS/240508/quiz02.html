@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 구구단 만들기 -->
+  <script>
+    let result = prompt("단 입력");
+    if (result > 0 && result < 10) {
+      for (let i = 1; i < 10; i++) {
+        document.write('<p>' + result + '*' + i + '=' + result * i + '</p>');
+      }
+    } else {
+      document.write('범위를 벗어났습니다.');
+    }
+
+    // 1. 입력창을 띄워서 1.사과 2.딸기 3.오렌지 중 하나를 선택하게 하세요.
+    // 2. 사용자의 입력에 따라 1번을 선택했다면 console에 Apple을
+    //                        2번을 선택했다면 Strawberry를
+    //                        3번을 선택했다면 Orange를 출력하세요.
+  </script>
+</body>
+
+</html>
