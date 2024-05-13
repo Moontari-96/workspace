@@ -29,6 +29,10 @@ let person = {
   helloTo: function (friend) {
     console.log("Hello" + friend.name);
   },
+  Dron: function (brand, price) {
+    this.brand = brand;
+    this.price = price;
+  },
 };
 // Quiz01. Jack의 영어점수를 출력해주세요.
 console.log(person.score.eng);
@@ -38,3 +42,5 @@ console.log(person.favoriteFruits()[2]);
 console.log(person.abilities().css());
 
 person.helloTo({ name: "Tom" });
+let dron = new person.Dron("Samsung", 100000);
+console.log(dron.brand, dron.price);

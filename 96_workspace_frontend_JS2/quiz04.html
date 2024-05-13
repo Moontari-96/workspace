@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey="></script>
+</head>
+
+<body>
+  <!-- Google Map 전 세계용 -->
+  <!-- Kakao, naver 국내용 -->
+  <div id="map" style="width:500px;height:400px;"></div>
+  <div id="btn_cont">
+    <div>
+      현재 Marker의 개수는 <span id="current_marker">0</span>
+    </div>
+    <button id="allClear">clear</button>
+  </div>
+  <script>
+    let mapContainer = document.getElementById('map');
+    let current_marker = document.getElementById('current_marker');
+    let allClear = document.getElementById('allClear');
+    let markers = [];
+    let sum_marker = 0;
+
+    let mapOptions = {
+      center: new kakao.maps.LatLng(33.450701, 126.570667),
+      level: 3
+    };
+
+    let map = new kakao.maps.Map(mapContainer, mapOptions);
+
+    // 지도에 마커를 표시합니다
+    kakao.maps.event.addListener(map, 'click', function (e) {
+      let marker = new kakao.maps.Marker({
+        position: e.latLng
+      });
+      marker.setMap(map);
+      markers.push(marker);
+      current_marker.innerHTML = markers.length;
+
+      // 마커 생성 후 우클릭 시 마커 삭제
+      kakao.maps.event.addListener(marker, 'rightclick', function () {
+        let idx = markers.indexOf(marker);
+        if (idx > -1) {
+          marker.setMap(null);
+          markers.splice(idx, 1)
+          current_marker.innerHTML = markers.length;
+        }
+      }
+      );
+      // 버튼 클릭 시 마커 전체 삭제
+      // allClear.addEventListener('click', function () {
+      //   marker.setMap(null);
+      //   markers.length = 0;
+      //   // markers=[];
+      //   console.log(markers.length);
+      //   current_marker.innerHTML = markers.length;
+      // })
+      allClear.addEventListener('click', function () {
+        for (let marker of markers) {
+          marker.setMap(null);
+        } // 지도에서 마커를 삭제
+        markers = []; // 마커 개수를 업데이트 합니다.
+      })
+    });
+
+  </script>
+</body>
+
+</html>

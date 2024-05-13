@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    input {
+      padding: 15px;
+      width: 50%;
+    }
+
+    div {
+      width: 100%;
+    }
+
+    .post_cont {
+      display: flex;
+      width: 100%;
+    }
+
+    .post {
+      flex: 9;
+    }
+
+    #postcode {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="post_cont">
+      <input type="text" placeholder="우편번호" readonly id="post">
+      <button id="postcode">우편번호 찾기</button>
+    </div>
+    <div>
+      <input type="text" placeholder="기본주소" readonly id="address1">
+      <input type="text" placeholder="상세주소" id="address2">
+    </div>
+  </div>
+
+  <script>
+    // Framework > Library > API ( Application Programming Interface )
+    // Library
+    // WEB API : 대기업 또는 대규모 그룹에서 개인이 개발하기 어려운 서비스를 구축하여 대중에 서비스 하는 것
+
+    let postCodeBtn = document.getElementById("postcode");
+    let post = document.getElementById("post");
+    let address1 = document.getElementById("address1");
+    let address2 = document.getElementById("address2");
+
+    postCodeBtn.addEventListener('click', function () {
+      new daum.Postcode({
+        oncomplete: function (data) {
+          // 팝업에서 검색결과 항목을 클릭했을때 실항할 코드를 작성하는 부분입니다.
+          // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+          let postcode = data.zonecode;
+          console.log(postcode);
+          post.value = postcode;
+          let address = data.jibunAddress;
+          address1.value = address;
+          console.log(address);
+          console.log(data);
+          console.log(data.sido)
+        }
+      }).open()
+    })
+  </script>
+</body>
+
+</html>
