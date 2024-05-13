@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">I'm Box</div>
+  <button data-color="pink">Test1</button>
+  <button data-color="yellowgreen">Test2</button>
+  <button data-color="dodgerblue">Test3</button>
+
+  <script>
+    $('button').on('click', function () {
+      console.log($(this).attr('data-color'))//getter
+      console.log($(this).attr('data-color', 'blue'))//setter
+    });
+
+    let btns = $('button');
+    console.log($(btns[0]));
+  </script>
+</body>
+
+</html>

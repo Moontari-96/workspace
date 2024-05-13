@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script>
+    $(function () {
+      // $('#container').prepend("Prepend<br>")
+      // $('#container').append("<br>Append")
+      // $('#container').before("Before<br>")
+      // $('#container').after("After")
+
+      // $('#container').prepend("Prepend2<br>")
+      // $('#container').append("<br>Append2")
+      // $('#container').before("Before2")
+      // $('#container').after("After2<br>")
+
+      // let prepend1 = "<div>Prepend1</div>";
+      let prepend1 = $("<div>"); // 태그에 대한 인스턴스 생성
+      prepend1.html("Prepend1");
+      prepend1.css("background-color", "pink")
+
+      let append1 = $("<div>"); // 태그에 대한 인스턴스 생성
+      append1.html("Append1");
+      append1.css("background-color", "dodgerblue")
+
+
+      $("#container").prepend(prepend1)
+      $("#container").append(append1)
+    })
+  </script>
+  <style>
+    #container {
+      border: 1px solid;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    [ 기존 내용 ]
+  </div>
+</body>
+
+</html>

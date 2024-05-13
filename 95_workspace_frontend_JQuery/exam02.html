@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+  <input type="text" id="input">
+  <div id="div">JQuery 연습</div>
+  <button id="button">버튼</button>
+
+  <script>
+    $('#input').val('TEST'); // setter
+    let value = $('#input').val(); // getter
+    console.log(value);
+
+    $('#div').html('JQuery 쉽네');
+    let value2 = $('#div').html();
+    console.log(value2)
+
+    $('#button').on('click', function () {
+      // $('#div').css('background', 'pink')
+      // $('#div').css('color', 'white')
+      $('#div').css({
+        'background': 'pink',
+        'color': 'white'
+        // JSON 타입으로 인자 전달 가능
+      })
+    })
+  </script>
+</body>
+
+</html>

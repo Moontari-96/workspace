@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script>
+    $(function () {
+      let txtidx = [];
+      $('#prependBtn').on('click', function () {
+        let prependtxt = $("<div>");
+        txtidx.push(prependtxt);
+        prependtxt.html("Contents Message Here : " + txtidx.length)
+        $('#container').prepend(prependtxt);
+      })
+      $('#appendBtn').on('click', function () {
+        let appendtxt = $("<div>");
+        txtidx.push(appendtxt);
+        appendtxt.html("Contents Message Here : " + txtidx.length)
+        $('#container').append(appendtxt);
+      })
+    })
+  </script>
+  <style>
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 400px;
+
+    }
+
+    #container {
+      width: 400px;
+      flex: 9;
+      border: 1px solid;
+      overflow-y: auto;
+    }
+
+    .btn_box {
+      flex: 1;
+      width: 400px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div id="container">
+
+    </div>
+    <div class="btn_box">
+      <button id="prependBtn">위로 추가 하기</button>
+      <button id="appendBtn">아래로 추가 하기</button>
+    </div>
+  </div>
+</body>
+
+</html>
