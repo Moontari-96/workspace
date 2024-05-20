@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc7abfa133ce89284c9e56191ac1d6e5"></script>
+</head>
+
+<body>
+  <!-- Google Map 전 세계용 -->
+  <!-- Kakao, naver 국내용 -->
+  <div id="map" style="width:500px;height:400px;"></div>
+  <script>
+    let container = document.getElementById('map');
+    let options = {
+      center: new kakao.maps.LatLng(33.450701, 126.570667),
+      level: 3
+    };
+
+    let map = new kakao.maps.Map(container, options);
+
+    // 지도를 클릭한 위치에 표출할 마커입니다
+    let marker = new kakao.maps.Marker({
+      // 지도 중심좌표에 마커를 생성합니다 
+      position: map.getCenter()
+    });
+    // 지도에 마커를 표시합니다
+    marker.setMap(map);
+    kakao.maps.event.addListener(map, 'click', function (e) {
+      let latlng = e.latLng;
+      marker.setPosition(latlng);
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <style>
+    fieldset input {
+      padding: 5px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  파일첨부<button id="plus">+</button>
+  <fieldset id="container">
+    <legend>File LIst</legend>
+  </fieldset>
+  <script>
+    $(function () {
+      let plus = $('#plus');
+      let filedset = $('#container');
+      plus.on('click', function () {
+        let block = $('<div>');
+        let inpFile = $('<input type="file">');
+        let closeBtn = $('<a href="#">');
+        closeBtn.html('x');
+        closeBtn.addClass('close');
+        block.append(inpFile);
+        block.append(closeBtn);
+        filedset.append(block);
+        if (filedset.children().length > 5) {
+          alert("파일 첨부는 최대 5개 까지입니다.");
+        }
+        $('.close').on('click', function () {
+          $(this).parent().remove();
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

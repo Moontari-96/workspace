@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+
+  제목:<input type="text" id="title"><br>
+  내용:<input type="text" id="contents"><br>
+  작성자:<input type="text" id="writer"><br>
+  <button id="add">테이블에 추가</button><br>
+  <input type="text" id="delTitle"> <button class="delBtn">삭제</button>
+  <table border="1">
+    <tr>
+      <th>제목</th>
+      <th>내용</th>
+      <th>작성자</th>
+    </tr>
+  </table>
+  <script>
+
+    $("#add").on("click", function () {
+
+      if ($("#title").val() == "") {
+        alert("제목을 입력하세요.")
+        return;
+      }
+
+      if ($("#contents").val() == "") {
+        alert("내용을 입력하세요.")
+        return;
+      }
+
+      if ($("#writer").val() == "") {
+        alert("작성자를 입력하세요.")
+        return;
+      }
+
+      let title = $("#title").val();
+      let contents = $("#contents").val();
+      let writer = $("#writer").val();
+
+      let tr = $("<tr>");
+
+      let titleTD = $("<td>");
+      titleTD.append(title);
+      titleTD.addClass("title");
+
+      let contentsTD = $("<td>");
+      contentsTD.append(contents);
+
+      let writerTD = $("<td>");
+      writerTD.append(writer);
+
+
+
+      tr.append(titleTD);
+      tr.append(contentsTD);
+      tr.append(writerTD);
+
+      $("table").append(tr);
+
+      $("#title").val("");
+      $("#contents").val("");
+      $("#writer").val("");
+    })
+
+    $(".delBtn").on("click", function () {
+      let delTitle = $("#delTitle").val();
+      // $('.title').each(function (i, e) {
+      //   if ($(e).html().includes(delTitle)) {
+      //     $(e).parent().remove();
+      //   }
+      // })
+      $('.title:contains(' + delTitle + ')').parent().remove();
+    });
+  </script>
+
+
+
+
+</body>
+
+</html>

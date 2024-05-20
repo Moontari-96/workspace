@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script>
+    $(function () {
+      // parent() : 기준 요소의 직계 Parent 요소를 찾아 반환
+      console.log($('#me'));
+      console.log($('#me').parent());
+      console.log($('#me').parent().parent());
+
+      // closest : 기준 요소의 parent부터 모든 조상 전체에 걸쳐 선택자 조건에 맞는 요소를 찾아 반환
+      console.log($('#me').closest('#parent01'));
+
+      // children() : 기준 요소의 직계 자손을 검색하여 반환
+      console.log($('#me').children()); // 직계자손 전체를 배열로
+      console.log($('#me').children("#sister01")); // 직계 자손 중 #sister01 만
+
+      // find() : 기준 요소의 후손 정체에서 선택자 조건에 맞는 요소를 찾아 반환
+      console.log($('#me').find('#sister01'));
+      console.log($('#me').find('#baby02'));
+
+      // prev() / next() : 기준요소의 바로 앞 또는 뒷 쪽 요소를 반환
+      console.log($('#me').prev());
+      console.log($('#me').next());
+
+      // siblings() : 기준요소와 동수준 요소 중 선택자 조건에 맞는 요소를 찾아 반환
+      console.log($('#me').siblings());
+      console.log($('#me').siblings('#brother03'));
+
+      // Quiz01. brother02 를 기준으로 baby02를 검색해서 background-color를 pink로 적용해보세요.
+      $('#brother02').prev().find('#baby02').css('background-color', 'pink');
+
+      // Quiz02. baby를 기준으로 parent02를 검색해서 color를 green로 설정하세요.
+      $('#baby').closest('#parent01').next().css('color', 'green');
+    })
+  </script>
+</head>
+
+<body>
+  <div id="home">
+    Home
+    <div id="grand_parent">
+      GrandParent
+      <div id="parent01">
+        Parent01
+        <div id="brother03">
+          Brother03
+        </div>
+        <div id="brother01">
+          Brother01
+        </div>
+        <div id="me">
+          Me
+          <div id="sister01">
+            Sister01
+            <div id="baby">
+              Baby01
+            </div>
+          </div>
+          <div id="sister02">
+            Sister02
+            <div id="baby02">
+              Baby02
+            </div>
+          </div>
+        </div>
+        <div id="brother02">
+          Brother02
+        </div>
+      </div>
+      <div id="parent02">
+        Parent02
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

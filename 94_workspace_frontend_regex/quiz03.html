@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div>
+    <input type="text" id="id_txt" placeholder="ID를 입력하세요.">
+    <button id="id_btn">검증</button>
+  </div>
+  <fieldset>
+    <legend>검증결과</legend>
+    <div id="val_box"></div>
+  </fieldset>
+  <script>
+    let id_txt = document.getElementById('id_txt');
+    let id_btn = document.getElementById('id_btn');
+    let val_box = document.getElementById('val_box');
+
+    id_btn.addEventListener('click', function () {
+      let regex = /[A-Z][a-z\d_]{6,12}/;
+      let result = regex.test(id_txt.value);
+      if (result) {
+        val_box.innerHTML = '사용 가능한 ID입니다.';
+        val_box.style.color = 'dodgerblue';
+      } else {
+        val_box.innerHTML = '사용 불가한 ID입니다.';
+        val_box.style.color = 'red';
+        val_box.setAttribute('color', 'red');
+      }
+    })
+  </script>
+</body>
+
+</html>

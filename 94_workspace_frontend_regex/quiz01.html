@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let str = "안녕하세요. 저는 Jack 입니다. 급한 일은 01043211234로 연락주세요";
+    // 이문자열 내에 핸드폰 번호가 존재하는지 검사하는 로직을 작성해보세요.
+    let regex = /01[\d]{9}/;
+    let result = regex.test(str);
+    if (result) {
+      console.log('검색에 성공했습니다.');
+    } else {
+      console.log('검색에 실패했습니다.');
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+  <!-- submit / reset -->
+
+  <!-- 1. 데이터 전송과 함께 페이지를 이동하는 기능  -->
+  <!-- form 태그 : 다른 페이지 또는 서버에 데이터를 전송하기 위한 태그 -->
+  <form action="test.html">
+    <fieldset>
+      <legend>서버에 데이터 전송</legend>
+      <input type="text" placeholder="작성자">
+      <br>
+      <input type="text" placeholder="메세지">
+      <br>
+      <input type="submit"> <!-- 전송 기능을 내장한 버튼 : form 태그 내에서만 전송 기능이 활성화 됨 -->
+      <input type="button" value="평범한 버튼"> <!-- 전송 기능 없는 평범한 버튼 -->
+
+      <button>전송</button> <!-- 전송 기능을 내장한 버튼 : form 태그 내에서만 전송 기능이 활성화 됨 -->
+      <button type="button">평범한 버튼</button> <!-- 전송 기능 없는 평범한 버튼 -->
+    </fieldset>
+  </form>
+
+  <!-- 2. 데이터 전송 없이 페이지만 이동하는 기능  -->
+  <!-- a 태그 : 페이지 전환 태그 -->
+  <!-- location.href = ""; -->
+  <button id="page">페이지 이동</button>
+  <script>
+    $('#page').on('click', function () {
+      location.href = "http://www.naver.com";
+    })
+    let a = / /;
+
+  </script>
+
+
+</body>
+
+</html>

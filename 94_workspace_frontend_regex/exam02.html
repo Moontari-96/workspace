@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+
+  <script>
+    // 정규 표현식
+    let str = "안녕하세요. 저는 Jack 입니다. 급한 일은 01043211234로 연락주세요";
+    let regex = /Jack/;
+    let result = regex.test(str); // return값 boolean;
+    if (result) {
+      console.log('검색에 성공했습니다.');
+    } else {
+      console.log('검색에 실패했습니다.');
+    }
+  </script>
+</body>
+
+</html>

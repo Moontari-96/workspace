@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <style>
+    .answer {
+      color: aqua;
+    }
+
+    .fault {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <input type="text" id="phone_inp">
+    <button id="phone_btn">검증</button>
+  </div>
+  <fieldset>
+    <legend>검증결과</legend>
+    <div id="val_box"></div>
+  </fieldset>
+  <script>
+    let phone_inp = $('#phone_inp');
+    let val_box = $('#val_box');
+    let phone_btn = $('#phone_btn');
+
+    // 이문자열 내에 핸드폰 번호가 존재하는지 검사하는 로직을 작성해보세요.
+    phone_btn.on('click', function () {
+      let regex = /^01\d{9}$/g;
+      console.log(phone_inp.val());
+      let result = regex.test(phone_inp.val());
+      if (result) {
+        val_box.html('핸드폰 번호가 맞습니다.');
+        val_box.addClass('answer');
+        val_box.removeClass('fault');
+      } else {
+        val_box.html('핸드폰 번호가 아닙니다.');
+        val_box.addClass('fault');
+        val_box.removeClass('answer');
+      }
+    })
+
+  </script>
+</body>
+
+</html>
