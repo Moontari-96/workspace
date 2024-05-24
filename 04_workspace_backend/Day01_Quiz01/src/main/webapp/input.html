@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+</head>
+
+<body>
+  <!-- 영화 이름, 장르를 입력받아 서버에 전달하는 Form 구성
+  > 전송 방식은 Post
+
+  Selvlet파일 - Quiz01.java
+  > 클라이언트로 부터 전송된 영화 이름 및 장르를 전달 받아 sysout으로 화면에 출력해보기. -->
+
+  <form action="/InputServlet" method="get">
+    <div>
+      <label for="movieName">영화 이름</label>
+      <input type="text" placeholder="영화 이름을 입력하세요" name="movieName">
+    </div>
+    <div>
+      <label for="movieGenre">영화 장르</label>
+      <input type="text" placeholder="영화 장르를 입력하세요" name="movieGenre">
+    </div>
+    <button>제출</button>
+  </form>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      border: 1px solid;
+    }
+
+    .container {
+      width: 300px;
+      margin: auto;
+
+    }
+
+    .container form {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+    }
+
+    .container button {
+      width: 25%;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <form action="/Inputservlet" method="get">
+      <input type="text" placeholder="작성자" id="writer" name="writer">
+      <input type="text" placeholder="내용" id="content" name="content">
+      <button id="writeBtn">제출</button>
+    </form>
+  </div>
+</body>
+
+</html>

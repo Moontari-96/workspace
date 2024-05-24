@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      margin: auto;
+      display: flex;
+      width: 600px;
+      height: 300px;
+      flex-direction: column;
+    }
+
+    div {
+      border: 1px solid;
+    }
+
+    .top {
+      flex: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bottom {
+      flex: 7;
+      display: flex;
+    }
+
+    .bottom div {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bottom div input {
+      padding: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="top">
+      <h2>Index</h2>
+    </div>
+    <div class="bottom">
+      <div class="left">
+        <input type="button" value="toInput" id="toInput">
+      </div>
+      <div class="right">
+        <form action="/OutputServlet">
+          <input type="button" value="toOutput" id="toOutput">
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("toInput").onclick = function () {
+      location.href = '/inputform.html';
+    };
+
+    document.getElementById("toOutput").onclick = function () {
+      location.href = '/OutputServlet';
+    };
+  </script>
+</body>
+
+</html>

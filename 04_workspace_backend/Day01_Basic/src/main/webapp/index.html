@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesop</title>
+  <link href="./image/icon/favicon.ico" media="all" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="./css/fullpage.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./css/font.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./js/jquery.fullpage.js"></script>
+  <script defer src="./js/app.js"></script>
+  <script defer src="./js/menu.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- header 영역 -->
+    <div class="header">
+      <div class="header_wrap">
+        <div class="wrap">
+          <div class="pc_ver">
+            <div class="header_logo">
+              <a href="#">
+                <svg aria-labelledby="aesop-:r26:" class="Icon_base__GKZ58 Icon_light__1TZsq Logo_icon__NDEf8"
+                  data-testid="data-testid-Icon" focusable="false" role="img" tabindex="-1" viewBox="0 0 489.7 154.3"
+                  style="height: 30px; width: 80px;">
+                  <title aria-label="Aesop" id="aesop-:r26:">Aesop</title>
+                  <g>
+                    <path
+                      d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z">
+                    </path>
+                    <path
+                      d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z">
+                    </path>
+                    <path
+                      d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z">
+                    </path>
+                    <path
+                      d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73">
+                    </path>
+                    <path
+                      d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7">
+                    </path>
+                    <rect x="131.8" y="13.5" width="44.3" height="5"></rect>
+                    <path
+                      d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9">
+                    </path>
+                  </g>
+                </svg>
+              </a>
+            </div>
+            <div class="nav" id="nav" tabindex="0">
+              <ul class="depth_1">
+                <li>
+                  <strong><a href="javascript:;">스킨 케어</a></strong>
+                  <ul class="depth_2">
+                    <li>클렌저</li>
+                    <li>각질 제거</li>
+                    <li>트리트먼트 & 마스크</li>
+                    <li>토너</li>
+                    <li>립 & 아이</li>
+                    <li>선 케어</li>
+                    <li>쉐이빙</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">바디 & 핸드</a></strong>
+                  <ul class="depth_2">
+                    <li>핸드</li>
+                    <li>바디</li>
+                    <li>퍼스널 케어</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">향수</a></strong>
+                  <ul class="depth_2">
+                    <li>우라논</li>
+                    <li>글론</li>
+                    <li>이더시스</li>
+                    <li>미라세티</li>
+                    <li>카르스트</li>
+                    <li>에레미아</li>
+                    <li>로즈</li>
+                    <li>휠</li>
+                    <li>마라케시</li>
+                    <li>테싯</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">헤어</a></strong>
+                  <ul class="depth_2">
+                    <li>샴푸</li>
+                    <li>컨디셔너</li>
+                    <li>트리트먼트</li>
+                    <li>그루밍</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">매장</a></strong>
+                  <ul class="depth_2">
+                    <li>매장찾기</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">소식</a></strong>
+                  <ul class="depth_2">
+                    <li>공지사항</li>
+                    <li>이벤트</li>
+                    <li>FAQ</li>
+                    <li>고객센터</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mob_ver">
+            <div class="header_logo">
+              <a href="#">
+                <svg aria-labelledby="aesop-:r26:" class="Icon_base__GKZ58 Icon_light__1TZsq Logo_icon__NDEf8"
+                  data-testid="data-testid-Icon" focusable="false" role="img" tabindex="-1" viewBox="0 0 489.7 154.3"
+                  style="height: 20px; width: 65px;">
+                  <title aria-label="Aesop" id="aesop-:r26:">Aesop</title>
+                  <g>
+                    <path
+                      d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z">
+                    </path>
+                    <path
+                      d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z">
+                    </path>
+                    <path
+                      d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z">
+                    </path>
+                    <path
+                      d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73">
+                    </path>
+                    <path
+                      d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7">
+                    </path>
+                    <rect x="131.8" y="13.5" width="44.3" height="5"></rect>
+                    <path
+                      d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9">
+                    </path>
+                  </g>
+                </svg>
+              </a>
+            </div>
+            <div class="btn"></div>
+            <div onclick="history.back();" class="page_cover"></div>
+            <div class="mob_menu">
+              <ul class="mob_nav">
+                <li>
+                  <strong><a href="javascript:;">스킨케어</a></strong>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">바디&핸드</a></strong>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">헤어</a></strong>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">향수</a></strong>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">매장</a></strong>
+                </li>
+                <li>
+                  <strong><a href="javascript:;">소식</a></strong>
+                </li>
+              </ul>
+              <div onclick="history.back();" class="close"></div>
+              <div class="company_etc">
+                <div class="company_txt">기업 정보</div>
+                <ul>
+                  <li>상호: 이솝코리아 유한회사/li>
+                  <li>주소: 서울특별시 강남구 도산대로45길 10-6 이솝코리아</li>
+                  <li>대표자: ANTOINE PIERRE BOURGEOIS(앙트안삐에르부르주아) | 대표전화: 1800-1987</li>
+                  <li>대표 이메일: aesop@aesop.com | 호스팅 사업자: SAP Hybris</li>
+                  <li>사업자 등록 번호: 220-88-56014 사업자정보확인</li>
+                  <li>통신판매업 신고번호: 2014-서울강남-02300</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu_bg"></div>
+    </div>
+    <!-- Main 영역 -->
+    <div id="fullpage">
+      <div class="section">
+        <div class="cont1">
+          <div class="swiper main_swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="main_cont">
+                  <div class="txt_cont">
+                    <div class="txt_box">
+                      <div class="cate_txt">
+                        <span>어버이날과 스승의 날</span>
+                      </div>
+                      <div class="tit">
+                        <p>존경하고 감사하는 분들을 위해</p>
+                      </div>
+                      <div class="sub_txt">
+                        <p>끊임없이 영감과 기쁨을 선사해 주신 부모님과 선생님, 그리고 멘토가 되어 주신 분들에게 감사의 마음을 전하세요. 작은 제스처에서 관대한 선물에 이르기까지 다양한 기프트
+                          셀렉션이 마련되어 있습니다.</p>
+                      </div>
+                      <div class="txt_btn">
+                        <a href="">기프트 둘러보기 <i class="fa-solid fa-arrow-right" style="color: #252525;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="img_box">
+                    <img src="./image/bg/main_01.avif" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="flex_cont">
+                  <div class="txt_cont">
+                    <div class="txt_box">
+                      <div class="tit">
+                        <p>독특한 매력을 선사하는 제품들</p>
+                      </div>
+                      <div class="sub_txt">
+                        <p>캠포릭, 스파이시, 유향, 플로럴 등 다양한 아로마의 이솝 제품은 에센셜 오일을 함유하고 있습니다. 에센셜 오일은 피부에 전하는 효능을 고려해 선정되었으며, 이 외에도
+                          기분 좋은
+                          아로마를
+                          선사합니다.</p>
+                      </div>
+                      <div class="txt_btn">
+                        <a href="">바디 & 핸드 케어 기프트 보기 <i class="fa-solid fa-arrow-right" style="color: #252525;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="img_box">
+                    <img src="./image/bg/section01.avif" alt="">
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="flex_cont">
+                  <div class="txt_cont">
+                    <div class="txt_box">
+                      <div class="cate_txt">
+                        <span>아로마틱 핸드 밤 3종</span>
+                      </div>
+                      <div class="tit">
+                        <p>엘레오스 아로마틱 핸드밤</p>
+                      </div>
+                      <div class="sub_txt">
+                        <p>오랜 사랑을 받아온 아로마틱 핸드 밤 레인지에 엘레오스가 새롭게 합류하여 레저렉션, 레버런스와 함께 합니다.</p>
+                      </div>
+                      <div class="txt_btn">
+                        <a href="">제품 보기 <i class="fa-solid fa-arrow-right" style="color: #252525;"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="img_box">
+                    <img src="./image/bg/section01_1.avif" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper_arrow_btn">
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="section">
+        <div class="cont2">
+          <div class="txt_cont">
+            <div class="txt_box">
+              <div class="cate_txt">
+                <span>향수</span>
+              </div>
+              <div class="tit">
+                <p>이솝의 퍼스널 향</p>
+              </div>
+              <div class="sub_txt">
+                <p>전통에서 벗어난 매혹적이고 감각적인 이솝 프래그런스는 추억과 우리를 이어주는 다리이자 주변 사람들과의 연결점입니다.</p>
+              </div>
+              <div class="txt_link">
+                <a href="">향수 모두 보기 <i class="fa-solid fa-arrow-right" style="color: #252525;"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="swip_wrap">
+            <div class="swiper product_swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="img_cont">
+                    <div class="img_box">
+                      <img src="./image/bg/section02.avif" alt="">
+                      <div class="img_txt">
+                        <p class="tit">테싯 오 드 퍼퓸</p>
+                        <p class="txt">상쾌한, 그린, 시트러스향</p>
+                      </div>
+                      <div class="img_bg"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="img_cont">
+                    <div class="img_box">
+                      <img src="./image/bg/section02_1.avif" alt="">
+                      <div class="img_txt">
+                        <p class="tit">휠 오 드 퍼퓸</p>
+                        <p class="txt">흥미를 불러일으키는 향기, 특이한 분위기</p>
+                      </div>
+                      <div class="img_bg"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="img_cont">
+                    <div class="img_box">
+                      <img src="./image/bg/section02.avif" alt="">
+                      <div class="img_txt">
+                        <p class="tit">테싯 오 드 퍼퓸</p>
+                        <p class="txt">상쾌한, 그린, 시트러스향</p>
+                      </div>
+                      <div class="img_bg"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="img_cont">
+                    <div class="img_box">
+                      <img src="./image/bg/section02_1.avif" alt="">
+                      <div class="img_txt">
+                        <p class="tit">휠 오 드 퍼퓸</p>
+                        <p class="txt">흥미를 불러일으키는 향기, 특이한 분위기</p>
+                      </div>
+                      <div class="img_bg"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="cont3">
+          <div class="txt_cont">
+            <div class="txt_box">
+              <div class="cate_txt">
+                <span>무료 샘플</span>
+              </div>
+              <div class="tit">
+                <p>향기로운 선물</p>
+              </div>
+              <div class="sub_txt">
+                <p>나르시스 신화에서 영감을 받아 탄생한 풍성한 우디 향이 돋보이는 이더시스 오 드 퍼퓸의 무료 샘플을 제공합니다. 주문 결제 시 이더시스 2mL 샘플 옵션을 선택해 주세요.</p>
+              </div>
+              <div class="txt_btn">
+                <a href="">이더시스 오 드 퍼퓸 보기 <i class="fa-solid fa-arrow-right" style="color: #252525;"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="img_box">
+            <img src="./image/bg/section04.avif" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="cont4">
+          <div class="img_box">
+            <img src="./image/bg/section03.avif" alt="">
+          </div>
+          <div class="txt_cont">
+            <div class="txt_box">
+              <div class="tit">
+                <p>나에게 어울리는 향수를 찾아보세요</p>
+              </div>
+              <div class="sub_txt">
+                <p>나에게 어울리는 향수를 찾아보세요
+                  나에게 어울리는 향수를 찾는 것은 쉽지 않습니다. 프래그런스 파인더가 이상적인 향수를 찾을 수 있도록 도와드립니다.</p>
+              </div>
+              <div class="txt_btn">
+                <a href="">프래그런스 파인더 시작하기 <i class="fa-solid fa-arrow-right" style="color: #252525;"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- footer 영역 -->
+      <div class="section footer fp-auto-height">
+        <div class="footer_cont">
+          <div class="footer_wrap">
+            <div class="footer__info">
+              <span>© Aesop</span>
+            </div>
+            <div class="footer_sns">
+              <a href="https://www.instagram.com/aesopskincare/" target="_blank" title="새창 열림">
+                <img src="./image/icon/ic_ins.png" alt="">
+              </a>
+              <a href="https://twitter.com/aesopskincare" target="_blank" title="새창 열림">
+                <img src="./image/icon/ic_twi.png" alt="">
+              </a>
+              <a href="https://pf.kakao.com/_BxdYjT" target="_blank" title="새창 열림">
+                <img src="./image/icon/ic_kakao.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
