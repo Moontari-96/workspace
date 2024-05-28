@@ -19,18 +19,19 @@ public class OutputServlet extends HttpServlet {
 		
 		try {
 			List<MovieDTO> list = dao.selectAll();
-			String[] arr = new String[] {
-				"Mango","Orange","Apple"
-			};
-			MovieDTO dto = new MovieDTO(9999,"Jack","EL 연습",null);
-			request.setAttribute("param1", 10);
-			request.setAttribute("param2", "Hello JSP");
-			request.setAttribute("fruits", arr);
-			request.setAttribute("movie", dto);
+			// String[] arr = new String[] {
+			// 	"Mango","Orange","Apple"
+			// };
+			// MovieDTO dto = new MovieDTO(9999,"Jack","EL 연습",null);
+			// request.setAttribute("param1", 10);
+			// request.setAttribute("param2", "Hello JSP");
+			// request.setAttribute("fruits", arr);
+			// request.setAttribute("movie", dto);
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("outputview.jsp").forward(request,response);
 		} catch (Exception e) {
 			e.printStackTrace();
+			response.sendRedirect("error.jsp");
 		}
 		
 		

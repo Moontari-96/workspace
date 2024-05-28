@@ -32,7 +32,7 @@
       margin-bottom: 20px;
     }
 
-    form>div {
+    #joinform>div {
       display: flex;
       width: 100%;
       padding: 10px;
@@ -73,23 +73,23 @@
       border-radius: 5px;
     }
 
-    form .id_Box,
-    form .pw_chkBox,
-    form .name_Box,
-    form .phone_Box,
-    form .email_Box {
+    #joinform .id_Box,
+    #joinform .pw_chkBox,
+    #joinform .name_Box,
+    #joinform .phone_Box,
+    #joinform .email_Box {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
     }
 
-    form .input_val {
+    #joinform .input_val {
       width: 100%;
       display: flex;
       align-items: center;
     }
 
-    form .val span {
+    #joinform .val span {
       display: block;
       padding: 10px 0;
     }
@@ -325,7 +325,84 @@
         e.preventDefault(); // e.preventDefault
       }
     })
+
+  </script>
+  <script>
+    var url = window.location.href;
+    var idx = url.splice(url.indexOf("="),);
+    console.log(idx);
   </script>
 </body>
 
 </html>
+
+<form action="" id="joinform">
+  <!-- ID 영역 -->
+  <div class="id_Box">
+    <div class="input_val">
+      <form action="idcheak.mem" method="get">
+        <label for="id">아이디</label>
+        <input type="text" id="id" placeholder="아이디" name="id">
+        <button id="id_chk" type="button">중복체크</button>
+      </form>
+    </div>
+    <div class="val"></div>
+  </div>
+  <!-- PW 영역 -->
+  <div class="pw_Box">
+    <label for="pw">패스워드</label>
+    <input type="password" id="pw" placeholder="패스워드">
+  </div>
+  <div class="pw_chkBox">
+    <div class="input_val">
+      <label for="pwchk">패스워드 확인</label>
+      <input type="password" id="pwchk" placeholder="패스워드 재입력">
+    </div>
+    <div class="val"></div>
+  </div>
+  <!-- 이름 영역 -->
+  <div class="name_Box">
+    <div class="input_val">
+      <label for="name">이름</label>
+      <input type="text" id="name" placeholder="이름">
+    </div>
+    <div class="val"></div>
+  </div>
+  <!-- 전화번호 영역 -->
+  <div class="phone_Box">
+    <div class="input_val">
+      <label for="phone">전화번호</label>
+      <input type="tel" id="phone" placeholder="전화번호">
+    </div>
+    <div class="val"></div>
+  </div>
+  <!-- 이메일 영역 -->
+  <div class="email_Box">
+    <div class="input_val">
+      <label for="email">이메일</label>
+      <input type="email" id="email" placeholder="이메일">
+    </div>
+    <div class="val"></div>
+  </div>
+  <!-- 주소 영역 -->
+  <div class="post_Box">
+    <label for="post">우편번호</label>
+    <input type="text" id="post" placeholder="우편번호" readonly>
+    <input type="button" onclick="postSearchBtn()" value="검색" id="post_btn">
+  </div>
+  <div>
+    <label for="address1">주소1</label>
+    <input type="text" placeholder="주소1" id="address1">
+  </div>
+  <div>
+    <label for="address2">상세주소</label>
+    <input type="text" placeholder="상세주소" id="address2">
+  </div>
+  <!-- 회원가입 영역 -->
+  <div class="join_box">
+    <button id="join_btn" type="submit">가입하기</button>
+  </div>
+  <div class="backBox">
+    <button id="backIndex" type="button">돌아가기</button>
+  </div>
+</form>

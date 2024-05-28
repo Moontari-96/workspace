@@ -30,10 +30,11 @@ public class InputServlet extends HttpServlet {
 		try {
 			int result = dao.insertMovie(new MovieDTO(0,title,genre,null));
 			request.setAttribute("result", result);
-			response.sendRedirect("inputview.jsp");
+			response.sendRedirect("OutputServlet");
 //			request.getRequestDispatcher("inputview.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
+			response.sendRedirect("error.jsp");
 		}
 		
 		// Servlet & JSP ( Java Server Page )

@@ -20,16 +20,17 @@ public class DeleteServlet extends HttpServlet {
 			try {
 				int target = Integer.parseInt(request.getParameter("delInp"));
 				int delResult = dao.delMovie(target);
-				request.setAttribute("delResult", delResult);
 				response.sendRedirect("OutputServlet");
 			} catch (Exception e) {
 				e.printStackTrace();
+				response.sendRedirect("error.jsp");
 			}
 		} else {
 			try {
 				response.sendRedirect("OutputServlet");
 			} catch (Exception e) {
 				e.printStackTrace();
+				response.sendRedirect("error.jsp");
 			}
 		}
 	}

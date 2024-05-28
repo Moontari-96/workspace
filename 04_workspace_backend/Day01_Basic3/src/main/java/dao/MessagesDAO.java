@@ -15,11 +15,10 @@ import dto.MessagesDTO;
 
 public class MessagesDAO {
 	// JNDI - Tomcat 서버에게 DBCP 인스턴스를 생성해 줄 것을 요구.
-
-	
 	// Singleton 기법 프로토타입
 	// synchronized Thread Safe는 비용( COST )을 발생 => 성능 저하
-	public static MessagesDAO instance;
+	private static MessagesDAO instance;
+	
 	public synchronized static MessagesDAO getInstance() {
 		if (instance == null) {
 			instance = new MessagesDAO();
@@ -94,6 +93,29 @@ public class MessagesDAO {
 				}
 				return list;
 			}
+		} 
+	}
+	public int deleteMessage(int target) throws Exception {
+		String sql = "delete from messages where id = ?";
+		try(
+				Connection con = this.getconnection();
+				PreparedStatement pstat = con.prepareStatement(sql);
+			) {
+			pstat.setInt(1, target);
+			int result = pstat.executeUpdate();
+			return result;
+		}
+	}
+	public int updateMessage(MessagesDTO dto) throws Exception {
+		String sql = "update messages set writer = ?, message = ?, write_date = sysdate where id = ?";
+		try(Connection con = this.getconnection();
+			PreparedStatement pstat = con.prepareStatement(sql);
+				) {
+			pstat.setString(1, dto.getWriter());
+			pstat.setString(2, dto.getMessage());
+			pstat.setInt(3, dto.getId());
+			int result = pstat.executeUpdate();
+			return result;
 		} 
 	}
 }

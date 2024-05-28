@@ -25,9 +25,11 @@ public class UpdateServlet extends HttpServlet {
 			numID = Integer.parseInt(upID);
 			try {
 				int upResult = dao.updateMovie(new MovieDTO(numID, upTitle, upGenre, null));
-				//	request.setAttribute("upResult", upResult);
 				response.sendRedirect("OutputServlet");
-				// request.getRequestDispatcher("OutputServlet").forward(request, response);
+				//	request.setAttribute("upResult", upResult);
+				//	response.sendRedirect("OutputServlet"); 클라이언트의 브라우저 주소값이 변경된다.
+				
+				// request.getRequestDispatcher("OutputServlet").forward(request, response); // 클라이언트는 페이지가 전환되었음을 ( 서블릿 -> JSP ) 인지 할 수 없다.( 주소값 변경 無 )
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

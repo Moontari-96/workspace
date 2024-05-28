@@ -58,7 +58,7 @@
         <input type="button" value="toInput" id="toInput">
       </div>
       <div class="right">
-        <form action="/OutputServlet">
+        <form action="output.msg" method="get">
           <input type="button" value="toOutput" id="toOutput">
         </form>
       </div>
@@ -68,10 +68,9 @@
     document.getElementById("toInput").onclick = function () {
       location.href = '/inputform.html';
     };
-
     document.getElementById("toOutput").onclick = function () {
-      location.href = '/OutputServlet';
-    };
+        location.href = 'output.msg';
+     };
   </script>
 </body>
 

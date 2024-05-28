@@ -32,7 +32,7 @@
 	      </c:forEach>
 	      <tr>
 	        <td colspan="4">
-	          <form action="/DeleteServlet">
+	          <form action="delete.messages">
 	            <input type="text" id="delinp" name="delInp">
 	            <button id="delBtn" name="delBtn">Delete</button>
 	          </form>
@@ -40,7 +40,7 @@
 	      </tr>
 	      <tr>
 	        <td colspan="4">
-	          <form action="/UpdateServlet">
+	          <form action="update.messages">
 	            <input type="text" id="upID" name="upID">
 	            <br>
 	            <input type="text" id="upTitle" name="upTitle">
