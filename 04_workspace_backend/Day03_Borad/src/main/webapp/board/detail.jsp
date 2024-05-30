@@ -48,13 +48,19 @@
 
     .post_meta {
       color: #6c757d;
+      margin-bottom:20px;
     }
 
     .post_content {
       white-space: pre-wrap;
     }
+    
+    .post_header form {
+    	float: right;
+    	padding-bottom: 10px;
+    	margin-bottom: 20px;
+    }
     .post_header button{
-      float: right;
       padding: 5px 10px;
       background-color: #ff4040;
       color: white;
@@ -63,6 +69,9 @@
       font-size: 16px;
       cursor: pointer;
       transition: background-color 0.3s;
+    }
+    .post_header .update_box {
+		display:none;
     }
     .comments_section {
       margin-top: 30px;
@@ -119,13 +128,79 @@
  <div class="container">
     <div class="post_detail">
       <div class="post_header">
-        <h2 id="post_title">제목 : ${dto.title}</h2>
-        <p class="post_meta">
+        <h2 id="post_title">
+        제목: <span id="modifyTitle">${dto.title}</span>
+        	
+        </h2>
+        <div class="post_meta">
           <span id="post_author">작성자: ${dto.writer}</span> |
           <span id="post_date">작성일: <fmt:formatDate value="${dto.write_date}" pattern="yyyy.MM.dd" /></span> |
           <span id="post_views">조회수: ${dto.view_count}</span>
-          <button id="deleteBtn">게시글 삭제</button>
-        </p>
+         
+          <c:choose>
+          <c:when test="${dto.writer eq loginID}">
+  	        <form action="/update.board?seq=${dto.seq}" method="post">
+			    <div class="update_box">
+			      <input type="hidden" name="title" id="hiddentitle" value="${dto.title}">
+			      <input type="hidden" name="content" id="hiddenContent" value="${dto.contents}">
+			      <button id="updateBtn">수정 완료</button>
+			      <button id="cancleBtn" type="button">취소</button>
+			    </div>
+			    <div class="modi_box">
+			      <button id="modifyBtn" type="button">게시글 수정</button>
+			      <button id="deleteBtn" type="button">게시글 삭제</button>
+			      <button id="listBtn" type="button">목록으로</button>
+			    </div>
+  			</form>
+  	        <script>
+  	        	$('#listBtn').on("click",function(){
+  	        		location.href="/list.board";
+  	        	})
+  	        	$('#cancleBtn').on("click",function(){
+  	        		location.reload();
+  	        	})
+  	        	$("#deleteBtn").on("click",function(){
+  	        		let result = confirm("정말 삭제하시겠습니까?");
+  	        		if(result) {
+  	        			location.href="/delete.board?seq=${dto.seq}";
+  	        		}
+  	        	})
+  	        	$("#modifyBtn").on("click",function(){
+  	        		let result = confirm("수정하시겠습니까?");
+  	        		if(result) {
+  	        			let modifyContent = $("#post-content");
+  	        			let modifyTitle = $("#modifyTitle");
+  	        			
+  	        			modifyContent.attr("contenteditable" , true);
+  	        			modifyTitle.attr("contenteditable" , true);
+  	        			modifyTitle.focus();
+  	        			$(".modi_box").css("display","none");
+  	        			$(".update_box").css("display","inline-block");
+  	        		}
+  	        	})
+  	        	$("#updateBtn").on("click",function(){
+  	        		let result = confirm("수정하시겠습니까?");
+  	        		if(result) {
+  	        			let modifyContent = $("#post-content");
+  	        			let modifyTitle = $("#modifyTitle");
+  	        			let contentval = $("#hiddenContent");
+  	        			let titleval = $("#hiddentitle");
+  	        			modifyContent.attr("contenteditable" , true);
+  	        			modifyTitle.attr("contenteditable" , true);
+  	        			contentval.val(modifyContent.html());
+  	        			titleval.val(modifyTitle.html());
+  	        			$(".update_box").css("display","none");
+  	        			$(".modi_box").css("display","inline-block");
+  	        		}
+  	        	})
+  	        </script>
+          </c:when>
+          <c:otherwise>
+           	<button id="listBtn" type="button">목록으로</button>
+          </c:otherwise>
+          </c:choose>
+          
+        </div>
       </div>
       <div class="post_content" id="post-content">
         ${dto.contents}
@@ -144,7 +219,9 @@
     </div>
   </div>
   <script>
-  
+  $('#listBtn').on("click",function(){
+		location.href="/list.board";
+	})
   </script>
 </body>
 </html>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import commons.BoardConfig;
 import dao.BoardDAO;
 import dto.BoardDTO;
 
@@ -25,8 +26,20 @@ public class BoardController extends HttpServlet {
 		BoardDAO dao = BoardDAO.getInstance();
 		try {
 			if(cmd.equals("/list.board")) {
-				List<BoardDTO> list = dao.selectAll();
+				String pcpage = request.getParameter("cpage");
+				if( pcpage == null) {
+					pcpage = "1";
+				}
+				
+				int cpage = Integer.parseInt(pcpage);
+				// List<BoardDTO> list = dao.selectAll();
+				List<BoardDTO> list = dao.selectNtoM(cpage * BoardConfig.recordCountPerPage - (BoardConfig.recordCountPerPage -1),
+						cpage * BoardConfig.recordCountPerPage);
+				
+				String pageNavi = dao.getPageNavi(cpage);
+				
 				request.setAttribute("list", list);
+				request.setAttribute("navi", pageNavi);
 				request.getRequestDispatcher("/board/list.jsp").forward(request, response);
 			} else if (cmd.equals("/write.board")) {
 				String writer = (String)request.getSession().getAttribute("loginID");
@@ -37,15 +50,25 @@ public class BoardController extends HttpServlet {
 				response.sendRedirect("/list.board");
 			} else if (cmd.equals("/detail.board")) {
 				String seq = request.getParameter("seq");
-				String writer = (String)request.getSession().getAttribute("loginID");
+				String loginID = (String)request.getSession().getAttribute("loginID");
 				int seqNum = Integer.parseInt(seq);
 				BoardDTO dto = dao.detailBoard(seqNum);
+				dao.updateViewCount(seqNum);
 				request.setAttribute("dto", dto);
-				request.setAttribute("writer", writer);
+				request.setAttribute("loginID", loginID);
 				request.getRequestDispatcher("/board/detail.jsp").forward(request, response);
 			} else if (cmd.equals("/delete.board")) {
-				String writer = (String)request.getSession().getAttribute("loginID");
-				String seq = request.getParameter("seq");
+				int seq = Integer.parseInt(request.getParameter("seq"));
+				dao.deleteBoard(seq);
+				response.sendRedirect("/list.board");
+			} else if (cmd.equals("/update.board")) {
+				int seq = Integer.parseInt(request.getParameter("seq"));
+				String content = request.getParameter("content");
+				String title = request.getParameter("title");
+				System.out.println(seq);
+				System.out.println(content);
+				System.out.println(title);
+				dao.updateBoard(new BoardDTO(seq,null,title,content,null,0));
 				response.sendRedirect("/list.board");
 			}
 		} catch (Exception e) {

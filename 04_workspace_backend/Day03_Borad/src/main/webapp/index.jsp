@@ -189,30 +189,57 @@
       margin: 8px 0;
       width: 100%;
     }
+    .welcome-container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+
+    .welcome-message h2 {
+      margin: 0 0 20px 0;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+    }
+
+    .button-container button {
+      flex: 1;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 16px;
+    }
+
+    .button-container button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
 	<c:choose>
 		<c:when test="${loginID != null}">
-			<table align="center">
-				<tr>
-					<th colspan="3">${loginID } 님 환영합니다.</th>
-				</tr>
-				<tr>
-					<td>
-						<button id="board">게시판</button>
-					</td>
-					<td>
-						<button id="mypage">내 정보</button>
-					</td>
-					<td>
-						<button id="logout">로그아웃</button>
-					</td>
-					<td>
-						<button id="memberout">회원탈퇴</button>
-					</td>
-				</tr>
-			</table>
+			 <div class="welcome-container">
+			    <div class="welcome-message">
+			      <h2>${loginID} 님 환영합니다.</h2>
+			    </div>
+			    <div class="button-container">
+			      <button id="board">게시판</button>
+			      <button id="mypage">내 정보</button>
+			      <button id="logout">로그아웃</button>
+			      <button id="memberout">회원탈퇴</button>
+			    </div>
+ 			 </div>
 			<script>
 				$("#board").on("click",function(){
 					location.href="/list.board"

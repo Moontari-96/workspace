@@ -104,7 +104,9 @@ body {
     </form>
   </div>
   <script>
-  
+  	$("#list").on("click",function(){
+  		location.href="/list.board";
+	})
   	$("#complete").on("click",function(){
 	  	$("#hiddenContent").val($("#content").html());
   	})

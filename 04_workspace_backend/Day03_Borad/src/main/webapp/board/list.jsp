@@ -207,16 +207,12 @@
       <button class="writerBtn" type="button" id="writerBtn">작성</button>
     </div>
     <div class="pagination" id="pagination">
-      <a class="active" href="#">&laquo;</a>
-      <a href="#">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">&raquo;</a>
+   	 ${navi}
     </div>
   </div>
   <script>
   
-  let writerBtn = document.getElementById("writerBtn")
+  let writerBtn = document.getElementById("writerBtn");
 
   writerBtn.addEventListener("click", function () {
 	  location.href="/board/writing.jsp";
