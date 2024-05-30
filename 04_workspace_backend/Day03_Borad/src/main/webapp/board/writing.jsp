@@ -1,12 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="ko">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게시글 작성</title>
-  <style>
-    body {
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<style>
+body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -80,21 +82,20 @@
     button:hover {
       background-color: #0056b3;
     }
-  </style>
+</style>
 </head>
-
 <body>
-  <div class="container">
+	<div class="container">
     <h1>자유게시판 글 작성하기</h1>
-    <form id="postForm" action="/submitPost" method="POST">
+    <form id="postForm" action="/write.board" method="post">
       <div class="form-group">
         <label for="title">제목</label>
         <input type="text" id="title" name="title" placeholder="글 제목을 입력하세요." required>
       </div>
       <div class="form-group">
         <label for="content">내용</label>
-        <div contenteditable="true" class="content" id="content" name="content" rows="10" placeholder="내용을 입력해주세요.">
-        </div>
+        <div contenteditable="true" class="content" id="content" name="content" rows="10" placeholder="내용을 입력해주세요."></div>
+         <input type="hidden" name="content" id="hiddenContent" value="">
       </div>
       <div class="btn_box">
         <button type="button" id="list">목록으로</button>
@@ -103,8 +104,10 @@
     </form>
   </div>
   <script>
-
+  
+  	$("#complete").on("click",function(){
+	  	$("#hiddenContent").val($("#content").html());
+  	})
   </script>
 </body>
-
 </html>

@@ -126,6 +126,120 @@
         $("span").attr("contenteditable", "false");
       }
     })
+    // 공용 유효성 텍스트 배열
+    let val = document.getElementsByClassName('val');
+
+    // name 체크 변수
+    let name = document.getElementById('userName');
+    let nameRegex = /^[가-힣]{2,5}$/;
+
+    // phone 체크 변수
+    let phone = document.getElementById('userPhone');
+    let phoneRegex = /^01[\d]-?\d{4}-?\d{4}$/;
+
+    // email 체크 변수
+    let eamil = document.getElementById('userEmail');
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // adress 변수
+    let post = document.getElementById('userZipcode');
+    let post_btn = document.getElementById('post_btn');
+    let address1 = document.getElementById('userAddress1');
+
+    // 이름 체크 함수
+    name.addEventListener('keyup', function () {
+      let result = nameRegex.test(name.value);
+      if (result) {
+        val[2].innerHTML = '<span>이름 굳👍</span>';
+        val[2].children[0].setAttribute('style', 'color:dodgerblue');
+      } else {
+        val[2].innerHTML = '<span>이름을 확인해주세요.</span>';
+        val[2].children[0].setAttribute('style', 'color:red');
+      }
+    })
+
+    // 전화번호 체크 함수
+    phone.addEventListener('keyup', function () {
+      let result = phoneRegex.test(phone.value);
+      console.log(result);
+      if (result) {
+        val[3].innerHTML = '<span>전화번호와 양식이 일치합니다.</span>';
+        val[3].children[0].setAttribute('style', 'color:dodgerblue');
+      } else {
+        val[3].innerHTML = '<span>전화번호를 확인해주세요.</span>';
+        val[3].children[0].setAttribute('style', 'color:red');
+      }
+    })
+    // 이메일 체크 함수
+    email.addEventListener('keyup', function () {
+      let result = emailRegex.test(email.value);
+      if (result) {
+        val[4].innerHTML = '<span>이메일과 양식이 일치합니다.</span>';
+        val[4].children[0].setAttribute('style', 'color:dodgerblue');
+      } else {
+        val[4].innerHTML = '<span>이메일을 확인해주세요.</span>';
+        val[4].children[0].setAttribute('style', 'color:red');
+      }
+    })
+
+    // 우편번호 찾기
+    function postSearchBtn() {
+      new daum.Postcode({
+        oncomplete: function (data) {
+          let postcode = data.zonecode; // 우편번호
+          let roadAddress = data.roadAddress; // 도로명주소
+          post.value = postcode;
+          address1.value = roadAddress;
+        }
+      }).open();
+    }
+
+    document.getElementById('backIndex').addEventListener('click', function () {
+      location.href = "/index.jsp";
+    })
+    $("#id_chk").on("click", function () {
+      if ($("#id").val() == "") {
+        alert("ID를 먼저 입력해주세요.")
+        return;
+      }
+      window.open("/idcheck.mem?id=" + $("#id").val(), "", "width=300,height=200");
+    })
+    console.log(didIdCheck);
+    // 서브밋 유효성 검사
+    joinform.addEventListener('submit', function (e) {
+      if (!idRegex.test(id.value)) {
+        // id 유효성
+        alert('ID를 먼저 입력해주세요.')
+        e.preventDefault(); // e.preventDefault
+      } else if (!pwRegex.test(pw.value)) {
+        // pw 유효성
+        alert('PW를 입력해주세요.')
+        e.preventDefault(); // e.preventDefault
+      } else if (!pwRegex.test(pwchk.value)) {
+        // pwchk 유효성
+        alert('패스워드 재입력을 입력해주세요.')
+        e.preventDefault(); // e.preventDefault
+      } else if (!nameRegex.test(name.value)) {
+        // name 유효성
+        alert('이름을 입력해주세요.')
+        e.preventDefault(); // e.preventDefault
+      } else if (didIdCheck == false) {
+        alert('ID 중복성 체크을 해주세요')
+        e.preventDefault(); // e.preventDefault
+      }
+    })
+    function postSearchBtn() {
+      new daum.Postcode({
+        oncomplete: function (data) {
+          let postcode = data.zonecode; // 우편번호
+          let roadAddress = data.roadAddress; // 도로명주소
+          let post_innertxt = post.value = postcode;
+          let address1_innertxt = address1.value = roadAddress;
+          post_txt.innerHTML = post_innertxt;
+          address1_txt.innerHTML = address1_innertxt;
+        }
+      }).open();
+    }
   </script>
 </body>
 

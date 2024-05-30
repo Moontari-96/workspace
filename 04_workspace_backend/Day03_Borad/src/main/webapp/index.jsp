@@ -200,6 +200,9 @@
 				</tr>
 				<tr>
 					<td>
+						<button id="board">게시판</button>
+					</td>
+					<td>
 						<button id="mypage">내 정보</button>
 					</td>
 					<td>
@@ -211,6 +214,9 @@
 				</tr>
 			</table>
 			<script>
+				$("#board").on("click",function(){
+					location.href="/list.board"
+				})
 				$("#mypage").on("click",function(){
 					location.href="/mypage.mem"
 				})

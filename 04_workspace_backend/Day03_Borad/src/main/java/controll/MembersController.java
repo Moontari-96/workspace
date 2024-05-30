@@ -19,13 +19,16 @@ import dto.MembersDTO;
 @WebServlet("*.mem")
 public class MembersController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8"); 
+		// 클라이언트로부터 전송되는 문자열에 대한 인코딩을 utf8로 처리
+		//request에서 값을 꺼내기 전에 처리해야만 함!
 		response.setContentType("text/html; charset=UTF-8");
 		String cmd = request.getRequestURI();
 		System.out.println(cmd);
 		MembersDAO dao = MembersDAO.getInstance();
 		try {
 			if(cmd.equals("/idcheck.mem")) {
+				// ID 중복성 체크
 				String id = request.getParameter("id");
 				System.out.println(id);
 				boolean result = dao.checkID(id);
@@ -33,6 +36,7 @@ public class MembersController extends HttpServlet {
 				request.setAttribute("result", result);
 				request.getRequestDispatcher("/members/idcheck.jsp").forward(request, response);
 			} else if (cmd.equals("/signup.mem")){
+				// 회원가입 DB 전달
 				System.out.println("우선진입");
 				String id = request.getParameter("id");
 				String pw = EncryptionUtils.getSHA512(request.getParameter("pw"));
@@ -53,6 +57,7 @@ public class MembersController extends HttpServlet {
 				}
 				response.sendRedirect("/index.jsp");
 			} else if(cmd.equals("/login.mem")){
+				// 로그인 시 세션 저장 후 로그인 정보 전달
 				String id = request.getParameter("id");
 				String pw = EncryptionUtils.getSHA512(request.getParameter("pw"));
 				boolean result = dao.checkLogin(id, pw);
@@ -93,10 +98,12 @@ public class MembersController extends HttpServlet {
 				} 
 				response.sendRedirect("index.jsp");
 			} else if(cmd.equals("/logout.mem")) {
+				// 로그아웃 세션 아웃
 				HttpSession session = request.getSession();
 				session.invalidate();
 				response.sendRedirect("index.jsp");
 			} else if (cmd.equals("/memberout.mem")) {
+				// 회원 탈퇴
 				HttpSession session = request.getSession();
 				String deleteID = (String)session.getAttribute("loginID");
 				System.out.println(deleteID);
@@ -104,6 +111,7 @@ public class MembersController extends HttpServlet {
 				session.invalidate();
 				response.sendRedirect("index.jsp");
 			} else if (cmd.equals("/mypage.mem")) {
+				// 마이페이지 전환
 				System.out.println("진입");
 				HttpSession session = request.getSession();
 				String mypageID = (String)session.getAttribute("loginID");
@@ -111,6 +119,7 @@ public class MembersController extends HttpServlet {
 				request.setAttribute("dto", dto);
 				request.getRequestDispatcher("/members/mypage.jsp").forward(request, response);
 			} else if (cmd.equals("/modifyUser.mem")) {
+				// 마이페이지 내 정보 수정
 				String id = request.getParameter("id");
 				String name = request.getParameter("name");
 				String phone = request.getParameter("phone");
@@ -125,7 +134,7 @@ public class MembersController extends HttpServlet {
 				System.out.println(address1);
 				System.out.println(address2);
 				dao.modifyUser(new MembersDTO(id,null,name,phone,email,zipcode,address1,address2,null));
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("/mypage.mem");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -235,7 +235,7 @@
         let phoneRegex = /^01[\d]-?\d{4}-?\d{4}$/;
 
         // email 체크 변수
-        let eamil = document.getElementById('phone');
+        let eamil = document.getElementById('email');
         let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         // adress 변수

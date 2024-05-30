@@ -196,6 +196,21 @@
     </form>
   </div>
   <script>
+    $("#modifyBtn").on("click", function () {
+      $(this).closest(".btn_box").removeClass("on");
+      $(this).closest(".btn_box").siblings().addClass("on");
+      $(this).closest(".info-box").addClass("on");
+      console.log(this.closest(".btn_box"));
+      if ($(".info-box").hasClass("on")) {
+        $("span").attr("contenteditable", "true");
+
+        $("#userID").attr("contenteditable", "false");
+        $("#userZipcode").attr("contenteditable", "false");
+        $("#userAddress1").attr("contenteditable", "false");
+        $("#userJoindate").attr("contenteditable", "false");
+      }
+    })
+
     let joinform = document.getElementById('joinform');
 
     // 공용 유효성 텍스트 배열
@@ -305,26 +320,6 @@
       }).open();
     }
 
-    // 서브밋 유효성 검사
-    joinform.addEventListener('submit', function (e) {
-      if (!idRegex.test(id.value)) {
-        // id 유효성
-        alert('ID를 먼저 입력해주세요.')
-        e.preventDefault(); // e.preventDefault
-      } else if (!pwRegex.test(pw.value)) {
-        // pw 유효성
-        alert('PW를 입력해주세요.')
-        e.preventDefault(); // e.preventDefault
-      } else if (!pwRegex.test(pwchk.value)) {
-        // pwchk 유효성
-        alert('패스워드 재입력을 입력해주세요.')
-        e.preventDefault(); // e.preventDefault
-      } else if (!nameRegex.test(name.value)) {
-        // name 유효성
-        alert('이름을 입력해주세요.')
-        e.preventDefault(); // e.preventDefault
-      }
-    })
 
   </script>
   <script>
