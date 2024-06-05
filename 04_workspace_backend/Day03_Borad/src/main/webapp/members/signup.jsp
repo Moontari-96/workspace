@@ -326,11 +326,28 @@
           location.href = "/index.jsp";
         })
         $("#id_chk").on("click", function () {
-	        if($("#id").val() == "") {
-	        	alert("ID를 먼저 입력해주세요.")
-	        	return;
-	        }
-	        window.open("/idcheck.mem?id=" + $("#id").val(), "", "width=300,height=200");
+        	$.ajax({
+				url:"/idcheck.mem",
+				type: "post",
+				dataType:"json", // 역직렬화 선언 (let movie = JSON.parse(resp))와 같은 의미
+				data: {id : $("#id").val()}
+			}).done(function(resp){
+				console.log(resp);
+				if(resp){
+					alert("사용이 불가능한 아이디 입니다.");
+					$("#id").val("");
+				} else if(!resp) {
+					let result = confirm("사용 가능한 ID 입니다. 사용하시겠습니까 ?");
+					 if (result) {
+                         didIdCheck = true;
+                      } else {
+                         $("#id").val("");
+                      }
+
+				}
+			});
+	        
+	        // window.open("/idcheck.mem?id=" + $("#id").val(), "", "width=300,height=200");
         })
          console.log(didIdCheck);
          // 서브밋 유효성 검사

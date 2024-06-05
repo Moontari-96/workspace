@@ -32,7 +32,7 @@ private static BoardDAO instance;
 	}
 	
 	private BoardDAO(){};
-	
+
 	public List<BoardDTO> selectAll() throws Exception {
 		String sql = "select * from board order by 1 desc";
 		try (
@@ -83,21 +83,57 @@ private static BoardDAO instance;
 		}
  	}
 	
+	
+	public int currVal() throws Exception {
+		String currval = "select board_seq.currval from dual";
+		try(
+				Connection con = this.getconnection();
+				PreparedStatement pstat = con.prepareStatement(currval);
+				ResultSet rs = pstat.executeQuery()
+				){rs.next();
+				return rs.getInt(1);
+				}
+	}
+	
+//	public int insert(BoardDTO dto) throws Exception {
+//		String sql = "insert into board values(board_seq.nextval,?,?,?,sysdate,0)";
+//		
+//		try (
+//				Connection con = this.getconnection();
+//				PreparedStatement pstat1 = con.prepareStatement(sql);	
+//				) {
+//			pstat1.setString(1, dto.getWriter());
+//			pstat1.setString(2, dto.getTitle());
+//			pstat1.setString(3, dto.getContents());
+//			int result = pstat1.executeUpdate();
+//			if(result > 0) {
+//				return currVal();
+//			}
+//			return 0;
+//		}	
+//	}
 	public int insert(BoardDTO dto) throws Exception {
 		String sql = "insert into board values(board_seq.nextval,?,?,?,sysdate,0)";
+		
 		try (
 				Connection con = this.getconnection();
-				PreparedStatement pstat = con.prepareStatement(sql);	
+				PreparedStatement pstat = con.prepareStatement(sql, new String[] {"seq"});
 				) {
 			pstat.setString(1, dto.getWriter());
 			pstat.setString(2, dto.getTitle());
 			pstat.setString(3, dto.getContents());
 			int result = pstat.executeUpdate();
-			return result;
+			try(ResultSet rs = pstat.getGeneratedKeys();){
+				rs.next();
+				int seq = rs.getInt(1);
+				System.out.println(seq);
+				return seq;
+			}
 		}	
-				
 	}
 	
+
+
 	public BoardDTO detailBoard(int seqNum) throws Exception {
 		String sql = "select * from board where seq = ?";
 		try (
@@ -159,7 +195,7 @@ private static BoardDAO instance;
 		}		
 	}
 	
-	private int getRecordCount() throws Exception {
+	public int getRecordCount() throws Exception {
 		String sql = "select count(*) from board";
 		try (
 						Connection con = this.getconnection();
@@ -171,63 +207,47 @@ private static BoardDAO instance;
 			}
 	}
 	
-	public String getPageNavi(int currentPage) throws Exception{
-		// 1. 전체 글의 개수 
-		int recordTotalCount= this.getRecordCount(); // 향후 DB에서 알아와야 하는 값 
-				
-		// 2. 한 페이지에 몇개의 게시글을 보여줄 것인지 결정
-		 int recordCountPerPage = BoardConfig.recordCountPerPage;
-				
-				
-		// 3. Page Navigator 를 몇 개씩 보여줄 것 인지 결정
-		int naviCountPerPage = BoardConfig.naviCountPerPage;
-				
-
-		int pageTotalCount = 0;
-				
-		if (recordTotalCount % recordCountPerPage > 0) {
-			pageTotalCount = recordTotalCount / recordCountPerPage + 1;
-		} else {
-			pageTotalCount = recordTotalCount / recordCountPerPage;
-		}
-				
-		// int currentPage = 2; // 향후 클라이언트가 누르는 번호로 대체 될 예정
-				
-		// 네비게이터의 시작 값
-		int startNavi = ( currentPage - 1 ) / naviCountPerPage * naviCountPerPage + 1;
-		// 네비게이터의 끝 값
-		int endNavi = startNavi + naviCountPerPage - 1;
-				
-		if (endNavi > pageTotalCount) {
-			endNavi = pageTotalCount;
-		}
-				
-		boolean needNext = true;
-		boolean needPrev = true;
-				
-		if(startNavi == 1) {
-			needPrev = false;
-		}
-				
-		if(endNavi == pageTotalCount) {
-			needNext = false;
-		}
-				
-		StringBuilder sb = new StringBuilder();
-		
-		if(needPrev)
-		{sb.append("<a href='/list.board?cpage=" + (startNavi-1) +"'>< </a>");}		
-		for(int i = startNavi; i <= endNavi; i++) {
-			if(currentPage == i) {
-				sb.append("<a class='active' href='/list.board?cpage="+i+"'>" + i + "</a> ");
-			} else {
-				sb.append("<a href='/list.board?cpage="+i+"'>" + i + "</a> ");
-			}
-			
-		}
-		if(needNext) {
-			sb.append("<a href='/list.board?cpage=" + (endNavi+1) +"'> ></a>");
-		}
-		return sb.toString();
-	}
+	/*
+	 * public String getPageNavi(int currentPage) throws Exception{ // 1. 전체 글의 개수
+	 * int recordTotalCount= this.getRecordCount(); // 향후 DB에서 알아와야 하는 값
+	 * 
+	 * // 2. 한 페이지에 몇개의 게시글을 보여줄 것인지 결정 int recordCountPerPage =
+	 * BoardConfig.recordCountPerPage;
+	 * 
+	 * 
+	 * // 3. Page Navigator 를 몇 개씩 보여줄 것 인지 결정 int naviCountPerPage =
+	 * BoardConfig.naviCountPerPage;
+	 * 
+	 * 
+	 * int pageTotalCount = 0;
+	 * 
+	 * if (recordTotalCount % recordCountPerPage > 0) { pageTotalCount =
+	 * recordTotalCount / recordCountPerPage + 1; } else { pageTotalCount =
+	 * recordTotalCount / recordCountPerPage; }
+	 * 
+	 * // int currentPage = 2; // 향후 클라이언트가 누르는 번호로 대체 될 예정
+	 * 
+	 * // 네비게이터의 시작 값 int startNavi = ( currentPage - 1 ) / naviCountPerPage *
+	 * naviCountPerPage + 1; // 네비게이터의 끝 값 int endNavi = startNavi +
+	 * naviCountPerPage - 1;
+	 * 
+	 * if (endNavi > pageTotalCount) { endNavi = pageTotalCount; }
+	 * 
+	 * boolean needNext = true; boolean needPrev = true;
+	 * 
+	 * if(startNavi == 1) { needPrev = false; }
+	 * 
+	 * if(endNavi == pageTotalCount) { needNext = false; }
+	 * 
+	 * StringBuilder sb = new StringBuilder();
+	 * 
+	 * if(needPrev) {sb.append("<a href='/list.board?cpage=" + (startNavi-1)
+	 * +"'>< </a>");} for(int i = startNavi; i <= endNavi; i++) { if(currentPage ==
+	 * i) { sb.append("<a class='active' href='/list.board?cpage="+i+"'>" + i +
+	 * "</a> "); } else { sb.append("<a href='/list.board?cpage="+i+"'>" + i +
+	 * "</a> "); }
+	 * 
+	 * } if(needNext) { sb.append("<a href='/list.board?cpage=" + (endNavi+1)
+	 * +"'> ></a>"); } return sb.toString(); }
+	 */
 }	

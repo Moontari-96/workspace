@@ -18,7 +18,7 @@ public class BoardDTO {
 		this.contents = contents;
 		this.write_date = write_date;
 		this.view_count = view_count;
-	}
+	} 
 	public BoardDTO() {
 		super();
 	}
