@@ -104,7 +104,7 @@
       justify-content: flex-end;
       padding: 20px 0;
     }
-
+	
     .btn_box button {
       color: #fff;
       padding: 10px 20px;
@@ -207,17 +207,17 @@
       <button class="writerBtn" type="button" id="writerBtn">작성</button>
     </div>
     <div class="pagination" id="pagination">
-   	 ${navi}
     </div>
   </div>
   <script>
-  
+  // 작성하기 버튼 이벤트
   let writerBtn = document.getElementById("writerBtn");
 
   writerBtn.addEventListener("click", function () {
 	  location.href="/board/writing.jsp";
   });
  
+  // 게시글 없을 때 노콘텐츠 스크립트
   document.addEventListener("DOMContentLoaded", function () {
       let board = document.getElementById("board");
       let pagination = document.getElementById("pagination");
@@ -231,6 +231,52 @@
         // pagination.style.display = "none"; // 페이지네이션 숨기기
       }
     });
+  
+  // 페이지네이션 스크립트
+  let pageNation = $("#pagination");
+  let cpage = ${cpage};
+  let record_total_count = ${record_total_count};
+  let record_count_per_page = ${record_count_per_page};
+  let navi_count_per_page = ${navi_count_per_page};
+  let pageTotalCount = 0;
+	
+  if (record_total_count % record_count_per_page > 0) {
+  	pageTotalCount = record_total_count / record_count_per_page + 1;
+  } else {
+    pageTotalCount = record_total_count / record_count_per_page;
+  }		
+  // 네비게이터의 시작 값
+  let startNavi = Math.floor(( cpage - 1 ) / navi_count_per_page) * navi_count_per_page + 1;
+  // 네비게이터의 끝 값 
+  let endNavi = startNavi + navi_count_per_page - 1;
+			
+  if (endNavi > pageTotalCount) {
+  	endNavi = pageTotalCount;
+  }
+			
+  let needNext = true;
+  let needPrev = true;
+			
+  if(startNavi == 1) {
+  	needPrev = false;
+  }
+			
+  if(endNavi == pageTotalCount) {
+	needNext = false;
+  }
+			
+   if(needPrev)
+	{pageNation.append("<a href='/list.board?cpage=" + (startNavi-1) +"'>< </a>");}		
+	for(let i = startNavi; i <= endNavi; i++) {
+		if(cpage == i) {
+			pageNation.append("<a class='active' href='/list.board?cpage="+i+"'>" + i + "</a> ");
+		} else {
+			pageNation.append("<a href='/list.board?cpage="+i+"'>" + i + "</a> ");
+		}
+	}
+	if(needNext) {
+		pageNation.append("<a href='/list.board?cpage=" + (endNavi+1) +"'> ></a>");
+	}  
   
   </script>
 </body>

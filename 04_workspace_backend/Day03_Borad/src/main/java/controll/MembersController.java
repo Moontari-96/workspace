@@ -1,7 +1,7 @@
 package controll;
 
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
+import com.google.gson.Gson;
 
 import commons.EncryptionUtils;
 import dao.MembersDAO;
@@ -33,8 +33,12 @@ public class MembersController extends HttpServlet {
 				System.out.println(id);
 				boolean result = dao.checkID(id);
 				System.out.println(result);
-				request.setAttribute("result", result);
-				request.getRequestDispatcher("/members/idcheck.jsp").forward(request, response);
+				// request.setAttribute("result", result);
+				// request.getRequestDispatcher("/members/idcheck.jsp").forward(request, response);
+				Gson g = new Gson();
+				String json = g.toJson(result);
+				PrintWriter pw = response.getWriter();
+				pw.append(json);
 			} else if (cmd.equals("/signup.mem")){
 				// 회원가입 DB 전달
 				System.out.println("우선진입");
