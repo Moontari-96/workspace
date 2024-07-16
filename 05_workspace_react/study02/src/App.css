@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+div:not(#root) {
+  border: 1px solid black;
+}
+
+.container {
+  width: 800px;
+  height: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}

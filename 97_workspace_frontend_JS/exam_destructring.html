@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Destructuring  : 배열이나 객체같은 복잡한 구조를 분해하여 변수에 할당하는 기법 -->
+
+  <script>
+    const numbers = [1, 2, 3];
+    // // const [a, b, c, d, e] = numbers;
+    // const [a, b, c, d = 15] = numbers;
+    // console.log(a, b, c, d);
+
+    const person = {
+      id: 1001,
+      name: "Tom"
+    }
+    // const { id, name, age = 30 } = person;
+    // console.log(`${id} : ${name} : ${age}`);
+    // console.log(person);
+
+    function func([a, b, c, d = 10]) {
+      console.log(a, b, c, d)
+    }
+    func(numbers);
+
+    function func2({ id, name, age = 15 }) {
+      console.log(`${id} : ${name} : ${age}`);
+    }
+    func2(person);
+  </script>
+</body>
+
+</html>

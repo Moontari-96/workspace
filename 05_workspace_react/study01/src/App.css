@@ -1,0 +1,16 @@
+.tableBox {
+  width: 200px;
+}
+
+.tableBox table {
+  width: 100%;
+}
+
+.ulBox {
+  border: solid 1px black;
+}
+
+.imageBox {
+  width: 200px;
+  border: solid 1px black;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
+  <script src="Exam03.js"></script>
+  <style>
+    #gamebox {
+      width: 500px;
+      height: 500px;
+      border: 1px solid;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="gamebox">
+
+  </div>
+  <script>
+    let config = {
+      type: Phaser.AUTO,
+      parent: "gamebox", // ID값
+      width: 500,
+      height: 500,
+      physics: {
+        default: "arcade",
+        arcade: {
+          //gravity: { y: 1000 },
+          debug: true,
+        }
+      },
+      scene: Exam03
+    };
+    let game = new Phaser.Game(config);
+  </script>
+</body>
+
+</html>

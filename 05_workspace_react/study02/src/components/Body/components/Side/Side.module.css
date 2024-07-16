@@ -1,0 +1,7 @@
+.side {
+  flex: 3;
+}
+
+:global(.bgred) {
+  background-color: red;
+}
