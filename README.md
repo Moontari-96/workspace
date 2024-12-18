@@ -5,6 +5,7 @@
 프론트엔드와 백엔드 기술을 체계적으로 학습하며 풀스택 개발자로 성장하기 위한 과정을 담았습니다.
 
 
+
 📚 학습 내용
 
 1. 프론트엔드 (Frontend)
@@ -43,6 +44,7 @@ AWS (Amazon Web Services):
 
 EC2, S3 등 AWS 서비스를 활용한 클라우드 환경에서의 서비스 배포.
 
+
 🚀 프로젝트 및 과제
 
 이 과정을 통해 다양한 실습과 프로젝트를 수행하며, 학습한 기술을 실제 환경에서 적용했습니다.
@@ -51,4 +53,4 @@ EC2, S3 등 AWS 서비스를 활용한 클라우드 환경에서의 서비스 �
 
 2차 프로젝트 : [WIT](https://github.com/Moontari-96/WIT)
 
-3차 프로젝트 : [Hows]https://github.com/Moontari-96/Hows
+3차 프로젝트 : [Hows](https://github.com/Moontari-96/Hows)
